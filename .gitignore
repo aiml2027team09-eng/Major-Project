@@ -15,6 +15,9 @@ processed_CICIDS2018/
 # Trained models (regenerate with hybrid_ids_model.py)
 trained_models/
 
+# Live monitoring output
+live_alerts.log
+
 # IDE / OS
 .idea/
 .vscode/

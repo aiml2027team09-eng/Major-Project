@@ -41,6 +41,7 @@ from sklearn.preprocessing import (
 from sklearn.compose import ColumnTransformer
 
 from imblearn.over_sampling import SMOTE
+from imblearn.under_sampling import RandomUnderSampler
 
 import matplotlib.pyplot as plt
 
@@ -66,7 +67,7 @@ warnings.filterwarnings("ignore")
 #
 # ------------------------------------------------
 
-CSV_FILE = r"D:\Users\anshp\Major Project\Major-project\cic.csv"
+CSV_FILE = r"D:\Users\anshp\Final year project\Major-Project\cic.csv"
 
 
 # ------------------------------------------------
@@ -90,6 +91,10 @@ TEST_SIZE = 0.15
 # ------------------------------------------------
 
 RANDOM_STATE = 42
+
+# Cap samples per class before SMOTE to avoid memory errors on large datasets.
+# Benign is undersampled to this limit; then SMOTE balances all classes equally.
+SMOTE_MAX_SAMPLES_PER_CLASS = 80000
 
 
 # ================================================================
@@ -783,18 +788,50 @@ print(
     ).value_counts()
 )
 
+# Use float32 to reduce memory during resampling
+X_train_processed = np.asarray(X_train_processed, dtype=np.float32)
+X_val_processed = np.asarray(X_val_processed, dtype=np.float32)
+X_test_processed = np.asarray(X_test_processed, dtype=np.float32)
+
+class_counts = pd.Series(y_train_encoded).value_counts()
+majority_class = class_counts.idxmax()
+majority_count = int(class_counts.max())
+
+if majority_count > SMOTE_MAX_SAMPLES_PER_CLASS:
+    print(
+        f"\nUndersampling majority class ({majority_class}) "
+        f"from {majority_count} to {SMOTE_MAX_SAMPLES_PER_CLASS} ..."
+    )
+    undersampler = RandomUnderSampler(
+        sampling_strategy={majority_class: SMOTE_MAX_SAMPLES_PER_CLASS},
+        random_state=RANDOM_STATE,
+    )
+    X_train_balanced, y_train_balanced = undersampler.fit_resample(
+        X_train_processed,
+        y_train_encoded,
+    )
+else:
+    X_train_balanced, y_train_balanced = X_train_processed, y_train_encoded
+
+print("\nClass distribution before SMOTE (after optional undersampling):")
+print(pd.Series(y_train_balanced).value_counts())
 
 smote = SMOTE(
-    random_state=RANDOM_STATE
+    random_state=RANDOM_STATE,
 )
-
 
 X_train_smote, y_train_smote = (
     smote.fit_resample(
-        X_train_processed,
-        y_train_encoded
+        X_train_balanced,
+        y_train_balanced,
     )
 )
+
+# Convert back to DataFrames for saving
+X_train_smote = pd.DataFrame(X_train_smote, columns=feature_names)
+X_val_processed = pd.DataFrame(X_val_processed, columns=feature_names)
+X_test_processed = pd.DataFrame(X_test_processed, columns=feature_names)
+X_train_processed = pd.DataFrame(X_train_processed, columns=feature_names)
 
 
 print(
