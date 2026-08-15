@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+
+# Raw dataset (too large for GitHub — download separately)
+cic.csv
+
+# Processed data (regenerate with preprocessing.py)
+processed_CICIDS2018/
+
+# Trained models (regenerate with hybrid_ids_model.py)
+trained_models/
+
+# IDE / OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db

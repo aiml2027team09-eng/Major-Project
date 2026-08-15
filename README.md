@@ -1,2 +1,2 @@
-# Major-Project
-AI based network intrusion detection system 
+# Major-project
+AI based Hybrid model for intrusion network detection 
