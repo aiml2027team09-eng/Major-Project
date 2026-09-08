@@ -1,0 +1,43 @@
+{
+  "dataset": "nsl_kdd",
+  "Autoencoder": {
+    "validation_accuracy": 0.9325783234546994,
+    "validation_precision": 0.945814560113825,
+    "validation_recall": 0.9070957471002956,
+    "validation_f1": 0.9260506152774552,
+    "test_accuracy": 0.8356547196593329,
+    "test_precision": 0.964292980671414,
+    "test_recall": 0.7386425621444713,
+    "test_f1": 0.8365176719763492
+  },
+  "XGBoost": {
+    "validation_accuracy": 0.9990474174428451,
+    "validation_precision": 0.9990593693817209,
+    "validation_recall": 0.9990474174428451,
+    "validation_f1": 0.999050968126523,
+    "test_accuracy": 0.7678317955997161,
+    "test_precision": 0.7533500132156864,
+    "test_recall": 0.7678317955997161,
+    "test_f1": 0.7290010076257434
+  },
+  "Hybrid": {
+    "validation_accuracy": 0.9989328906805786,
+    "validation_precision": 0.9989749157090958,
+    "validation_recall": 0.9989328906805786,
+    "validation_f1": 0.9989479538799492,
+    "test_accuracy": 0.7047812817904374,
+    "test_precision": 0.8383404145516336,
+    "test_recall": 0.7047812817904374,
+    "test_f1": 0.7408465881345762
+  },
+  "Overall": {
+    "validation_accuracy": 0.9562870448772227,
+    "validation_precision": 0.9594474336706236,
+    "validation_recall": 0.9562870448772227,
+    "validation_f1": 0.9549667789972872,
+    "test_accuracy": 0.7224982256919801,
+    "test_precision": 0.7337247468829802,
+    "test_recall": 0.7224982256919801,
+    "test_f1": 0.6815285107934459
+  }
+}

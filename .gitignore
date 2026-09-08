@@ -9,14 +9,22 @@ venv/
 # Raw dataset (too large for GitHub — download separately)
 cic.csv
 
-# Processed data (regenerate with preprocessing.py)
+# Processed data
 processed_CICIDS2018/
+processed_NSL_KDD/
 
 # Trained models (regenerate with hybrid_ids_model.py)
 trained_models/
 
 # Live monitoring output
 live_alerts.log
+live_alerts_*.log
+live_alerts_*.jsonl
+
+# Raw NSL-KDD dataset (download separately)
+NSL-KDD/
+captured_data/
+processed_live/
 
 # IDE / OS
 .idea/

@@ -3,7 +3,7 @@ import os
 import numpy as np
 import pandas as pd
 
-from hybrid_ids.config import DATA_FOLDER
+import hybrid_ids.config as config
 
 
 def load_datasets():
@@ -11,31 +11,33 @@ def load_datasets():
     print("=" * 70)
     print("HYBRID AUTOENCODER + XGBOOST IDS")
     print("=" * 70)
+    print(f"\nDataset: {config.ACTIVE_DATASET}")
+    print(f"Data folder: {config.DATA_FOLDER}")
     print("\nLoading datasets...")
 
     X_train = pd.read_csv(
-        os.path.join(DATA_FOLDER, "X_train_smote.csv")
+        os.path.join(config.DATA_FOLDER, "X_train_smote.csv")
     )
     y_train = pd.read_csv(
-        os.path.join(DATA_FOLDER, "y_train_smote.csv")
+        os.path.join(config.DATA_FOLDER, "y_train_smote.csv")
     )["Label"]
 
     X_validation = pd.read_csv(
-        os.path.join(DATA_FOLDER, "X_validation.csv")
+        os.path.join(config.DATA_FOLDER, "X_validation.csv")
     )
     y_validation = pd.read_csv(
-        os.path.join(DATA_FOLDER, "y_validation.csv")
+        os.path.join(config.DATA_FOLDER, "y_validation.csv")
     )["Label"]
 
     X_test = pd.read_csv(
-        os.path.join(DATA_FOLDER, "X_test.csv")
+        os.path.join(config.DATA_FOLDER, "X_test.csv")
     )
     y_test = pd.read_csv(
-        os.path.join(DATA_FOLDER, "y_test.csv")
+        os.path.join(config.DATA_FOLDER, "y_test.csv")
     )["Label"]
 
     X_normal = pd.read_csv(
-        os.path.join(DATA_FOLDER, "X_train_normal_autoencoder.csv")
+        os.path.join(config.DATA_FOLDER, "X_train_normal_autoencoder.csv")
     )
 
     print("\nDataset shapes:")

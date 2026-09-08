@@ -13,6 +13,7 @@ from hybrid_ids.autoencoder import (
     train_autoencoder,
 )
 from hybrid_ids.binary_labels import convert_to_binary_labels, load_label_encoder
+from hybrid_ids.device_config import setup_training_devices
 from hybrid_ids.evaluate_autoencoder import evaluate_autoencoder
 from hybrid_ids.evaluate_xgboost import evaluate_xgboost_split, plot_confusion_matrix
 from hybrid_ids.hybrid_pipeline import evaluate_hybrid_pipeline
@@ -30,6 +31,8 @@ warnings.filterwarnings("ignore")
 
 def run_pipeline():
     """Run the full hybrid autoencoder + XGBoost IDS pipeline."""
+    setup_training_devices()
+
     # Step 1: Load data
     (
         X_train,
@@ -68,20 +71,24 @@ def run_pipeline():
     save_autoencoder(autoencoder)
     plot_autoencoder_loss(history)
 
-    # Step 4: Reconstruction error and anomaly threshold
+    # Step 4: Reconstruction error and tuned anomaly threshold
     normal_errors, validation_errors, test_errors = compute_reconstruction_errors(
         autoencoder, X_normal_np, X_validation_np, X_test_np
     )
-    threshold = determine_threshold(normal_errors)
+
+    label_encoder = load_label_encoder()
+    validation_binary_true = convert_to_binary_labels(y_validation_np, label_encoder)
+    test_binary_true = convert_to_binary_labels(y_test_np, label_encoder)
+
+    threshold = determine_threshold(
+        normal_errors,
+        validation_errors=validation_errors,
+        validation_binary_true=validation_binary_true,
+    )
 
     # Step 5: Anomaly detection on validation and test sets
     validation_anomaly_predictions = detect_anomalies(validation_errors, threshold)
     test_anomaly_predictions = detect_anomalies(test_errors, threshold)
-
-    # Step 6: Binary labels for autoencoder evaluation
-    label_encoder = load_label_encoder()
-    validation_binary_true = convert_to_binary_labels(y_validation_np, label_encoder)
-    test_binary_true = convert_to_binary_labels(y_test_np, label_encoder)
 
     # Step 7: Evaluate autoencoder
     autoencoder_validation_metrics = evaluate_autoencoder(

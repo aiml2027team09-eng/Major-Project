@@ -1,0 +1,49 @@
+{
+  "nsl_kdd": {
+    "dataset": "nsl_kdd",
+    "validated_at": "2026-09-06T20:15:15",
+    "threshold": 0.051200868049758166,
+    "test_samples": 22544,
+    "benign_samples": 9711,
+    "attack_samples": 12833,
+    "full_test_set": {
+      "autoencoder": {
+        "accuracy": 0.8663502484031228,
+        "precision": 0.9400430184620899,
+        "recall": 0.8173459050884438,
+        "f1": 0.8744112375474136
+      },
+      "hybrid_accuracy": 0.7509315117104329
+    },
+    "benign_only_simulation": {
+      "description": "Simulates live network with no attacks \u2014 lower FPR is better",
+      "autoencoder": {
+        "accuracy": 0.9311090515909793,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "false_positive_rate": 0.0688909484090207,
+      "false_alarms": 669,
+      "total_benign": 9711
+    },
+    "attack_only_validation": {
+      "description": "Proves model detects known attacks offline \u2014 higher detection rate is better",
+      "autoencoder": {
+        "accuracy": 0.8173459050884438,
+        "precision": 1.0,
+        "recall": 0.8173459050884438,
+        "f1": 0.8994940399622674
+      },
+      "attack_detection_rate": 0.8173459050884438,
+      "attacks_detected": 10489,
+      "total_attacks": 12833
+    },
+    "live_captured_normal": {
+      "description": "Your captured live normal traffic \u2014 should have ~0% false alarms",
+      "samples": 50,
+      "false_alarms": 50,
+      "false_positive_rate": 1.0
+    }
+  }
+}

@@ -2,22 +2,22 @@ import os
 
 import joblib
 
-from hybrid_ids.config import DATA_FOLDER
+import hybrid_ids.config as config
 
 
 def convert_to_binary_labels(labels, label_encoder):
     """
     Convert multi-class labels to binary labels.
-    Label 0 = BENIGN, anything else = ATTACK.
+    Normal/BENIGN = 0, anything else = ATTACK (1).
     """
     benign_indices = [
         index
         for index, label in enumerate(label_encoder.classes_)
-        if label.upper() == "BENIGN"
+        if str(label).upper() in ("BENIGN", "NORMAL")
     ]
 
     if len(benign_indices) == 0:
-        raise ValueError("BENIGN class not found.")
+        raise ValueError("Normal/BENIGN class not found in label encoder.")
 
     benign_class = benign_indices[0]
     return (labels != benign_class).astype(int)
@@ -25,4 +25,4 @@ def convert_to_binary_labels(labels, label_encoder):
 
 def load_label_encoder():
     """Load the fitted label encoder from preprocessing."""
-    return joblib.load(os.path.join(DATA_FOLDER, "label_encoder.pkl"))
+    return joblib.load(os.path.join(config.DATA_FOLDER, "label_encoder.pkl"))

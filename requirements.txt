@@ -9,5 +9,13 @@ seaborn>=0.12.0
 tensorflow>=2.13.0
 xgboost>=2.0.0
 
+# GPU (optional)
+# XGBoost uses NVIDIA CUDA automatically when USE_GPU=True in hybrid_ids/config.py
+# TensorFlow GPU on Windows requires WSL2 — see README.md
+
 # Live packet capture
 scapy>=2.5.0
+
+# Dashboard
+streamlit>=1.28.0
+plotly>=5.18.0

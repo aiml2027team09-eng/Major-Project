@@ -25,6 +25,7 @@
 # 1. IMPORT LIBRARIES
 # ================================================================
 
+import gc
 import os
 import warnings
 import joblib
@@ -96,6 +97,136 @@ RANDOM_STATE = 42
 # Benign is undersampled to this limit; then SMOTE balances all classes equally.
 SMOTE_MAX_SAMPLES_PER_CLASS = 80000
 
+# Memory-efficient CSV loading (rows per chunk). Lower if RAM is limited.
+CHUNK_SIZE = 100_000
+
+# Optional row limit for low-RAM systems (None = use full file).
+# Example: MAX_ROWS = 500_000
+MAX_ROWS = None
+
+INVALID_LABELS = ["", "nan", "NaN", "None", "null"]
+LABEL_CANDIDATES = ["Label", "label", "LABEL"]
+
+
+def _find_label_column(columns):
+    for column in LABEL_CANDIDATES:
+        if column in columns:
+            return column
+    return None
+
+
+def _downcast_numeric_frame(df):
+    """Reduce memory by using float32/int32 where possible."""
+    for column in df.select_dtypes(include=["float64"]).columns:
+        df[column] = df[column].astype(np.float32)
+    for column in df.select_dtypes(include=["int64"]).columns:
+        df[column] = pd.to_numeric(df[column], downcast="integer")
+    return df
+
+
+def load_and_clean_csv(csv_path):
+    """
+    Load large CSV files in chunks to avoid memory errors.
+    Cleans labels, handles inf/nan, deduplicates, returns a DataFrame.
+    """
+    temp_clean = os.path.join(OUTPUT_FOLDER, "_temp_clean.csv")
+    temp_dedup = os.path.join(OUTPUT_FOLDER, "_temp_dedup.csv")
+
+    for path in (temp_clean, temp_dedup):
+        if os.path.exists(path):
+            os.remove(path)
+
+    label_column = None
+    total_read = 0
+    total_written = 0
+    first_write = True
+    class_counts = {}
+
+    print("\n[1/15] Loading CSV file in chunks (memory-efficient)...")
+
+    for chunk in pd.read_csv(csv_path, chunksize=CHUNK_SIZE, low_memory=True):
+        if MAX_ROWS is not None and total_read >= MAX_ROWS:
+            break
+        if MAX_ROWS is not None:
+            chunk = chunk.head(MAX_ROWS - total_read)
+
+        total_read += len(chunk)
+        chunk.columns = chunk.columns.astype(str).str.strip()
+
+        if label_column is None:
+            label_column = _find_label_column(chunk.columns)
+            if label_column is None:
+                raise ValueError(
+                    "\nCould not find the Label column.\n\n"
+                    "Available columns are:\n"
+                    + str(chunk.columns.tolist())
+                )
+            print("Label column:", label_column)
+
+        chunk[label_column] = chunk[label_column].astype(str).str.strip()
+        chunk = chunk[~chunk[label_column].isin(INVALID_LABELS)]
+
+        for label, count in chunk[label_column].value_counts().items():
+            class_counts[label] = class_counts.get(label, 0) + int(count)
+
+        numeric_columns = chunk.select_dtypes(include=np.number).columns
+        if len(numeric_columns) > 0:
+            chunk[numeric_columns] = chunk[numeric_columns].replace(
+                [np.inf, -np.inf], np.nan
+            )
+
+        chunk = chunk.dropna()
+        chunk.to_csv(temp_clean, mode="a", header=first_write, index=False)
+        first_write = False
+        total_written += len(chunk)
+
+        del chunk
+        gc.collect()
+
+    print("CSV loaded successfully.")
+    print(f"Rows read: {total_read:,} | Rows after cleaning: {total_written:,}")
+
+    print("\n[4/15] Removing duplicate rows (chunked)...")
+    seen_hashes = set()
+    duplicate_count = 0
+    kept_rows = 0
+    first_dedup = True
+
+    for chunk in pd.read_csv(temp_clean, chunksize=CHUNK_SIZE, low_memory=True):
+        row_hashes = pd.util.hash_pandas_object(chunk, index=False)
+        keep_mask = []
+        for row_hash in row_hashes:
+            if row_hash in seen_hashes:
+                keep_mask.append(False)
+                duplicate_count += 1
+            else:
+                seen_hashes.add(row_hash)
+                keep_mask.append(True)
+
+        chunk = chunk.loc[keep_mask]
+        if len(chunk) > 0:
+            chunk.to_csv(temp_dedup, mode="a", header=first_dedup, index=False)
+            first_dedup = False
+            kept_rows += len(chunk)
+
+        del chunk, row_hashes, keep_mask
+        gc.collect()
+
+    print("Duplicate rows found:", duplicate_count)
+    print("Shape after duplicate removal:", (kept_rows, "columns pending"))
+
+    print("\nLoading cleaned dataset into memory...")
+    df = pd.read_csv(temp_dedup, low_memory=True)
+    df = _downcast_numeric_frame(df)
+
+    for path in (temp_clean, temp_dedup):
+        if os.path.exists(path):
+            os.remove(path)
+
+    gc.collect()
+    class_distribution = pd.Series(class_counts).sort_values(ascending=False)
+    return df, label_column, class_distribution, duplicate_count
+
 
 # ================================================================
 # 3. CREATE OUTPUT FOLDER
@@ -127,183 +258,31 @@ print("=" * 70)
 
 
 # ================================================================
-# 5. LOAD CSV
+# 5–10. LOAD AND CLEAN CSV (chunked, memory-efficient)
 # ================================================================
 
-print("\n[1/15] Loading CSV file...")
-
-df = pd.read_csv(
-    CSV_FILE,
-    low_memory=False
+df, label_column, class_distribution_before, duplicate_count = load_and_clean_csv(
+    CSV_FILE
 )
-
-print("CSV loaded successfully.")
 
 print("\nOriginal dataset shape:")
 print(df.shape)
 
+print("\n[2/15] Column names cleaned during chunked load.")
 
-# ================================================================
-# 6. CLEAN COLUMN NAMES
-# ================================================================
-
-print("\n[2/15] Cleaning column names...")
-
-df.columns = (
-    df.columns
-    .astype(str)
-    .str.strip()
-)
-
-
-# ================================================================
-# 7. FIND LABEL COLUMN
-# ================================================================
-
-possible_label_columns = [
-    "Label",
-    "label",
-    "LABEL"
-]
-
-label_column = None
-
-for column in possible_label_columns:
-
-    if column in df.columns:
-
-        label_column = column
-        break
-
-
-if label_column is None:
-
-    raise ValueError(
-        "\nCould not find the Label column.\n\n"
-        "Available columns are:\n"
-        + str(df.columns.tolist())
-    )
-
-
-print("Label column:", label_column)
-
-
-# ================================================================
-# 8. CLEAN LABELS
-# ================================================================
-
-print("\n[3/15] Cleaning labels...")
-
-df[label_column] = (
-    df[label_column]
-    .astype(str)
-    .str.strip()
-)
-
-
-# Remove empty / invalid labels
-
-invalid_labels = [
-    "",
-    "nan",
-    "NaN",
-    "None",
-    "null"
-]
-
-before_labels = len(df)
-
-df = df[
-    ~df[label_column].isin(
-        invalid_labels
-    )
-].copy()
-
-after_labels = len(df)
-
-print(
-    "Rows removed because of invalid labels:",
-    before_labels - after_labels
-)
-
-
-# ================================================================
-# 9. INITIAL CLASS DISTRIBUTION
-# ================================================================
+print("\n[3/15] Labels cleaned during chunked load.")
 
 print("\nOriginal class distribution:")
-
-class_distribution_before = (
-    df[label_column]
-    .value_counts()
-)
-
-print(
-    class_distribution_before
-)
-
-
-# Save original class distribution
+print(class_distribution_before)
 
 class_distribution_before.to_csv(
-    os.path.join(
-        OUTPUT_FOLDER,
-        "class_distribution_before.csv"
-    )
+    os.path.join(OUTPUT_FOLDER, "class_distribution_before.csv")
 )
 
+print("\n[5/15] Infinite values handled during chunked load.")
+print("\n[6/15] Missing values handled during chunked load.")
 
-# ================================================================
-# 10. REMOVE DUPLICATES
-# ================================================================
-
-print("\n[4/15] Removing duplicate rows...")
-
-duplicate_count = df.duplicated().sum()
-
-print(
-    "Duplicate rows found:",
-    duplicate_count
-)
-
-df = (
-    df
-    .drop_duplicates()
-    .reset_index(drop=True)
-)
-
-print(
-    "Shape after duplicate removal:",
-    df.shape
-)
-
-
-# ================================================================
-# 11. HANDLE INFINITE VALUES
-# ================================================================
-
-print("\n[5/15] Handling infinite values...")
-
-numeric_columns_temp = (
-    df.select_dtypes(
-        include=np.number
-    ).columns
-)
-
-df[numeric_columns_temp] = (
-    df[numeric_columns_temp]
-    .replace(
-        [np.inf, -np.inf],
-        np.nan
-    )
-)
-
-
-# ================================================================
-# 12. MISSING VALUE REPORT
-# ================================================================
-
-print("\n[6/15] Checking missing values...")
+print("\nChecking remaining missing values...")
 
 missing_values = (
     df.isnull()
@@ -436,6 +415,10 @@ X = df.drop(
 )
 
 y = df[label_column]
+
+original_row_count = len(df)
+del df
+gc.collect()
 
 
 print(
@@ -1060,7 +1043,7 @@ pd.DataFrame(
 
 summary = {
 
-    "Original rows": len(df),
+    "Original rows": original_row_count,
 
     "Original features":
         X.shape[1],

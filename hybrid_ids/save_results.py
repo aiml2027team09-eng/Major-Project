@@ -1,7 +1,7 @@
 import json
 import os
 
-from hybrid_ids.config import MODEL_FOLDER
+import hybrid_ids.config as config
 
 
 def save_results(
@@ -14,6 +14,7 @@ def save_results(
 ):
     """Save all model evaluation results to JSON."""
     results = {
+        "dataset": config.ACTIVE_DATASET,
         "Autoencoder": {
             "threshold": float(threshold),
             "validation_accuracy": float(autoencoder_validation_metrics["accuracy"]),
@@ -48,7 +49,7 @@ def save_results(
             "classification_f1": float(hybrid_metrics["classification_f1"]),
         }
 
-    with open(os.path.join(MODEL_FOLDER, "model_results.json"), "w") as f:
+    with open(os.path.join(config.MODEL_FOLDER, "model_results.json"), "w") as f:
         json.dump(results, f, indent=4)
 
 
@@ -60,10 +61,10 @@ def print_final_summary(autoencoder_test_metrics, xgboost_test_metrics):
     print("=" * 70)
 
     print("\nModels saved in:")
-    print(os.path.abspath(MODEL_FOLDER))
+    print(os.path.abspath(config.MODEL_FOLDER))
 
     print("\nGenerated files:")
-    for file in sorted(os.listdir(MODEL_FOLDER)):
+    for file in sorted(os.listdir(config.MODEL_FOLDER)):
         print(" -", file)
 
     print("\n")

@@ -1,0 +1,43 @@
+{
+  "dataset": "cicids2018",
+  "Autoencoder": {
+    "validation_accuracy": 0.9091715566985977,
+    "validation_precision": 0.71303297082686,
+    "validation_recall": 0.8788136675035105,
+    "validation_f1": 0.7872908169099988,
+    "test_accuracy": 0.9103516753615639,
+    "test_precision": 0.7166857579228714,
+    "test_recall": 0.8785957446808511,
+    "test_f1": 0.7894243820375079
+  },
+  "XGBoost": {
+    "validation_accuracy": 0.9999837225012005,
+    "validation_precision": 0.9999837238799485,
+    "validation_recall": 0.9999837225012005,
+    "validation_f1": 0.9999837228254402,
+    "test_accuracy": 1.0,
+    "test_precision": 1.0,
+    "test_recall": 1.0,
+    "test_f1": 1.0
+  },
+  "Hybrid": {
+    "validation_accuracy": 0.9999654755739685,
+    "validation_precision": 0.99996548580646,
+    "validation_recall": 0.9999654755739685,
+    "validation_f1": 0.9999654776329707,
+    "test_accuracy": 1.0,
+    "test_precision": 1.0,
+    "test_recall": 1.0,
+    "test_f1": 1.0
+  },
+  "Overall": {
+    "validation_accuracy": 0.9768127029600632,
+    "validation_precision": 0.9774524357457086,
+    "validation_recall": 0.9768127029600632,
+    "validation_f1": 0.974158643756515,
+    "test_accuracy": 0.976780147962464,
+    "test_precision": 0.9774282103938692,
+    "test_recall": 0.976780147962464,
+    "test_f1": 0.9741938854484719
+  }
+}

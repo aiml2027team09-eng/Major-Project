@@ -1,25 +1,74 @@
 import os
 
-# Paths (reuse hybrid_ids folders)
-DATA_FOLDER = "processed_CICIDS2018"
-MODEL_FOLDER = "trained_models"
-ALERT_LOG = "live_alerts.log"
+
+
+from dataset_config import (
+
+    CAPTURED_DATA_ROOT,
+
+    DEFAULT_DATASET,
+
+    captured_raw_csv,
+
+    get_profile,
+
+    processed_live_folder,
+
+    resolve_model_folder,
+
+)
+
+
+
+_profile = get_profile(DEFAULT_DATASET)
+
+
+
+ACTIVE_DATASET = _profile.name
+
+FEATURE_SET = _profile.feature_set
+
+DATA_FOLDER = _profile.data_folder
+
+MODEL_FOLDER = resolve_model_folder(_profile)
+
+DEFAULT_CAPTURE_LABEL = _profile.normal_label
+
+ALERT_LOG = _profile.alert_log
+
+
+
+CAPTURED_DATA_FOLDER = CAPTURED_DATA_ROOT
+
+CAPTURED_RAW_CSV = captured_raw_csv(_profile)
+
+PROCESSED_LIVE_FOLDER = processed_live_folder(_profile)
+
+
 
 # Capture settings
-# Set to interface name, e.g. "Wi-Fi", "Ethernet", or None to auto-pick first non-loopback
+
 INTERFACE = None
 
-# Close a flow after this many seconds without packets
 FLOW_IDLE_TIMEOUT = 60
 
-# How often to flush idle flows (seconds)
 FLOW_FLUSH_INTERVAL = 5
 
-# Max flows to keep in memory
+CAPTURE_SAVE_INTERVAL = 10
+
 MAX_ACTIVE_FLOWS = 50000
 
-# Minimum packets before a flow is analyzed
 MIN_PACKETS_PER_FLOW = 2
 
-# Scapy sniff batch size
-SNIFF_PACKET_COUNT = 50
+XGBOOST_MIN_CONFIDENCE = 0.85
+
+
+
+os.makedirs(MODEL_FOLDER, exist_ok=True)
+
+os.makedirs(CAPTURED_DATA_FOLDER, exist_ok=True)
+
+os.makedirs(os.path.dirname(CAPTURED_RAW_CSV), exist_ok=True)
+
+os.makedirs(PROCESSED_LIVE_FOLDER, exist_ok=True)
+

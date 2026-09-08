@@ -12,7 +12,7 @@ from sklearn.metrics import (
     recall_score,
 )
 
-from hybrid_ids.config import MODEL_FOLDER
+import hybrid_ids.config as config
 
 
 def _compute_metrics(y_true, y_pred):
@@ -76,7 +76,7 @@ def plot_confusion_matrix(y_true, y_pred, label_encoder):
     plt.title("XGBoost Confusion Matrix")
     plt.tight_layout()
     plt.savefig(
-        os.path.join(MODEL_FOLDER, "xgboost_confusion_matrix.png"),
+        os.path.join(config.MODEL_FOLDER, "xgboost_confusion_matrix.png"),
         dpi=300,
     )
     plt.close()

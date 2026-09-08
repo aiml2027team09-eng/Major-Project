@@ -7,14 +7,12 @@ from dataclasses import dataclass, field
 
 from scapy.all import IP, TCP, UDP, ICMP, sniff
 
-from live_ids.config import (
-    FLOW_FLUSH_INTERVAL,
-    FLOW_IDLE_TIMEOUT,
-    INTERFACE,
-    MAX_ACTIVE_FLOWS,
-    MIN_PACKETS_PER_FLOW,
+import live_ids.config as config
+from live_ids.feature_builder import build_feature_row as build_cicids_feature_row
+from live_ids.nsl_kdd_feature_builder import (
+    ConnectionWindowTracker,
+    build_nsl_kdd_feature_row,
 )
-from live_ids.feature_builder import build_feature_row
 
 
 @dataclass
@@ -74,9 +72,15 @@ def _count_tcp_flag(flag_val, bit):
 class LiveFlowTracker:
     """Capture packets, aggregate flows, emit completed flows for analysis."""
 
-    def __init__(self, interface=None, on_flow_complete=None):
-        self.interface = interface or INTERFACE
+    def __init__(self, interface=None, on_flow_complete=None, feature_set=None):
+        self.interface = interface or config.INTERFACE
         self.on_flow_complete = on_flow_complete
+        self.feature_set = feature_set or config.FEATURE_SET
+        self._connection_tracker = (
+            ConnectionWindowTracker()
+            if self.feature_set in ("nsl_kdd", "both")
+            else None
+        )
         self._flows = {}
         self._flow_direction = {}
         self._completed_queue = deque()
@@ -128,7 +132,7 @@ class LiveFlowTracker:
         key = _flow_key(src_ip, dst_ip, sport, dport, proto)
 
         with self._lock:
-            if len(self._flows) >= MAX_ACTIVE_FLOWS:
+            if len(self._flows) >= config.MAX_ACTIVE_FLOWS:
                 return
 
             if key not in self._flows:
@@ -178,7 +182,7 @@ class LiveFlowTracker:
 
             self.stats["packets_captured"] += 1
 
-    def _flush_idle_flows(self):
+    def _flush_idle_flows(self, force=False):
         now = time.time()
         to_remove = []
 
@@ -186,22 +190,34 @@ class LiveFlowTracker:
             for key, flow in self._flows.items():
                 idle = now - flow.last_time
                 total_pkts = flow.tot_fwd_pkts + flow.tot_bwd_pkts
-                if idle >= FLOW_IDLE_TIMEOUT and total_pkts >= MIN_PACKETS_PER_FLOW:
+                if total_pkts < config.MIN_PACKETS_PER_FLOW:
+                    continue
+                if force or idle >= config.FLOW_IDLE_TIMEOUT:
                     to_remove.append(key)
 
             for key in to_remove:
                 flow = self._flows.pop(key)
                 self._flow_direction.pop(key, None)
-                feature_row = build_feature_row(flow)
+                feature_row = self._build_feature_row(flow)
                 self._completed_queue.append((flow, feature_row))
                 self.stats["flows_completed"] += 1
                 if self.on_flow_complete:
                     self.on_flow_complete(flow, feature_row)
 
+    def _build_feature_row(self, flow):
+        if self.feature_set == "both":
+            return {
+                "nsl_kdd": build_nsl_kdd_feature_row(flow, self._connection_tracker),
+                "cicids2018": build_cicids_feature_row(flow),
+            }
+        if self.feature_set == "nsl_kdd":
+            return build_nsl_kdd_feature_row(flow, self._connection_tracker)
+        return build_cicids_feature_row(flow)
+
     def _flush_loop(self):
         while self._running:
             self._flush_idle_flows()
-            time.sleep(FLOW_FLUSH_INTERVAL)
+            time.sleep(config.FLOW_FLUSH_INTERVAL)
 
     def _sniff_loop(self):
         while self._running:
@@ -224,7 +240,7 @@ class LiveFlowTracker:
         threading.Thread(target=self._sniff_loop, daemon=True).start()
 
         print(f"Capturing on interface: {self.interface or '(default)'}")
-        print(f"Flow idle timeout: {FLOW_IDLE_TIMEOUT}s")
+        print(f"Flow idle timeout: {config.FLOW_IDLE_TIMEOUT}s")
         print("Press Ctrl+C to stop.\n")
 
     def run_until_interrupt(self):
@@ -239,7 +255,7 @@ class LiveFlowTracker:
 
     def stop(self):
         self._running = False
-        self._flush_idle_flows()
+        self._flush_idle_flows(force=True)
 
     def pop_completed_flows(self):
         items = []
