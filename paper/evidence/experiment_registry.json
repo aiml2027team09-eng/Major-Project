@@ -1,0 +1,66 @@
+{
+    "registry_version": "1.0-canonical",
+    "total_experiments": 4,
+    "experiments": [
+        {
+            "experiment_id": "EXP-NSLKDD-CANONICAL-SEED42",
+            "dataset": "NSL-KDD",
+            "seed": 42,
+            "split": "Random Stratified Clean (Deduplicated)",
+            "model": "Hybrid (AE + XGBoost)",
+            "threshold": 0.08398428070545198,
+            "accuracy": 0.9276918219134828,
+            "macro_f1": 0.7670245664340753,
+            "fpr": 0.07531634598717282,
+            "fnr": 0.06866710563446524,
+            "roc_auc": 0.9629684958507988,
+            "pr_auc": 0.9173188022974227,
+            "valid_for_paper": true
+        },
+        {
+            "experiment_id": "EXP-NSLKDD-STANDALONE-XGB-SEED42",
+            "dataset": "NSL-KDD",
+            "seed": 42,
+            "split": "Random Stratified Clean (Deduplicated)",
+            "model": "Standalone XGBoost",
+            "threshold": "N/A",
+            "accuracy": 0.9998195678650368,
+            "macro_f1": 0.9968961275109647,
+            "fpr": 0.0,
+            "fnr": 0.0,
+            "roc_auc": 1.0000000000000002,
+            "pr_auc": 1.0,
+            "valid_for_paper": true
+        },
+        {
+            "experiment_id": "EXP-CICIDS2018-CANONICAL-SEED42",
+            "dataset": "CSE-CIC-IDS2018 (Brute-Force Subset)",
+            "seed": 42,
+            "split": "Random Stratified Clean (Deduplicated)",
+            "model": "Hybrid (AE + XGBoost)",
+            "threshold": 0.197273,
+            "accuracy": 0.913370418198073,
+            "macro_f1": 0.5805159807928322,
+            "fpr": 0.10027034521003743,
+            "fnr": 0.0029757687402579,
+            "roc_auc": 0.9126618412605998,
+            "pr_auc": 0.4346209554913397,
+            "valid_for_paper": true
+        },
+        {
+            "experiment_id": "EXP-CICIDS2018-STANDALONE-XGB-SEED42",
+            "dataset": "CSE-CIC-IDS2018 (Brute-Force Subset)",
+            "seed": 42,
+            "split": "Random Stratified Clean (Deduplicated)",
+            "model": "Standalone XGBoost",
+            "threshold": "N/A",
+            "accuracy": 0.9999900665540876,
+            "macro_f1": 0.9999862595688015,
+            "fpr": 1.1553214104163778e-05,
+            "fnr": 0.0,
+            "roc_auc": 0.9999999975443076,
+            "pr_auc": 0.9999999849401366,
+            "valid_for_paper": true
+        }
+    ]
+}

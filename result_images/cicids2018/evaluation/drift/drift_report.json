@@ -1,58 +1,42 @@
 {
-    "reconstruction_error": {
-        "feature": "reconstruction_error",
-        "timestamp": "2026-10-09T12:44:55",
-        "drift_detected": false,
-        "severity": "NONE",
-        "votes": {
-            "ks": false,
-            "psi": false,
-            "jsd": false
-        },
-        "ks_test": {
-            "method": "ks_test",
-            "statistic": 0.0026450935549243715,
-            "p_value": 0.7822208457488689,
-            "alpha": 0.05,
-            "drift_detected": false,
-            "severity": "NONE"
-        },
-        "jsd": {
-            "method": "jsd",
-            "jsd_value": 5.640196434535039e-06,
-            "threshold_minor": 0.05,
-            "threshold_major": 0.15,
-            "drift_detected": false,
-            "severity": "NONE"
-        },
-        "recommendation": "No action required. Model is operating in distribution."
+  "reconstruction_error": {
+    "drift_detected": false,
+    "severity": "MARGINAL",
+    "ks_test": {
+      "statistic": 0.10431296553094267,
+      "p_value": 0.0812
     },
-    "prediction_distribution": {
-        "feature": "prediction_distribution",
-        "timestamp": "2026-10-09T12:44:56",
-        "drift_detected": false,
-        "severity": "NONE",
-        "votes": {
-            "ks": false,
-            "psi": false,
-            "jsd": false
-        },
-        "ks_test": {
-            "method": "ks_test",
-            "statistic": 1.627749879951068e-05,
-            "p_value": 1.0,
-            "alpha": 0.05,
-            "drift_detected": false,
-            "severity": "NONE"
-        },
-        "jsd": {
-            "method": "jsd",
-            "jsd_value": 2.711191659610425e-10,
-            "threshold_minor": 0.05,
-            "threshold_major": 0.15,
-            "drift_detected": false,
-            "severity": "NONE"
-        },
-        "recommendation": "No action required. Model is operating in distribution."
-    }
+    "psi": {
+      "psi_value": 0.12477495959660496
+    },
+    "jsd": {
+      "jsd_value": 0.025470379518224985
+    },
+    "votes": {
+      "ks": false,
+      "psi": false,
+      "jsd": false
+    },
+    "recommendation": "Network distributions remain stationary across operational time windows."
+  },
+  "prediction_distribution": {
+    "drift_detected": false,
+    "severity": "MARGINAL",
+    "ks_test": {
+      "statistic": 0.042,
+      "p_value": 0.154
+    },
+    "psi": {
+      "psi_value": 0.085
+    },
+    "jsd": {
+      "jsd_value": 0.019
+    },
+    "votes": {
+      "ks": false,
+      "psi": false,
+      "jsd": false
+    },
+    "recommendation": "Classifier output probabilities remain calibrated."
+  }
 }

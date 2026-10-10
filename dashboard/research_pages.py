@@ -115,7 +115,7 @@ def page_ablation(project_root: Path, dataset: str) -> None:
             yaxis_range=[0, 1.05],
             height=420,
         )
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
 
     # Latency comparison
     if "latency_ms_per_sample" in df.columns:
@@ -125,11 +125,11 @@ def page_ablation(project_root: Path, dataset: str) -> None:
             color="model", color_discrete_sequence=px.colors.qualitative.Pastel,
         )
         fig2.update_layout(height=350, xaxis_tickangle=-30, showlegend=False)
-        st.plotly_chart(fig2, use_container_width=True)
+        st.plotly_chart(fig2, width='stretch')
 
     # Table
     st.markdown("#### Full ablation results table")
-    st.dataframe(df, use_container_width=True, hide_index=True)
+    st.dataframe(df, width='stretch', hide_index=True)
     csv = df.to_csv(index=False).encode("utf-8")
     st.download_button("Download ablation results (CSV)", csv, "ablation_results.csv", "text/csv")
 
@@ -184,7 +184,7 @@ def page_shap(project_root: Path, dataset: str) -> None:
             color_continuous_scale="Blues",
         )
         fig.update_layout(height=500, yaxis=dict(autorange="reversed"))
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
 
     # Display SHAP images if present
     shap_images = list(shap_dir.glob("shap_*.png"))
@@ -194,7 +194,7 @@ def page_shap(project_root: Path, dataset: str) -> None:
         for i, img in enumerate(shap_images[:4]):
             with cols[i % 2]:
                 st.image(str(img), caption=img.stem.replace("_", " ").title(),
-                         use_container_width=True)
+                         width='stretch')
 
     # Top features text
     if summary.get("top_10_features"):
@@ -280,7 +280,7 @@ def page_drift(project_root: Path, dataset: str) -> None:
         for i, img in enumerate(drift_images[:4]):
             with cols[i % 2]:
                 st.image(str(img), caption=img.stem.replace("_", " ").title(),
-                         use_container_width=True)
+                         width='stretch')
 
 
 # ─────────────────────────────────────────────
@@ -331,7 +331,7 @@ def page_unseen_attack(project_root: Path, dataset: str) -> None:
         fig.update_layout(height=400, xaxis_tickangle=-30, yaxis_range=[0, 1.05])
         fig.add_hline(y=0.5, line_dash="dash", line_color="red",
                       annotation_text="50% detection threshold")
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
 
     # FNR chart
     if "false_negative_rate" in df.columns:
@@ -345,7 +345,7 @@ def page_unseen_attack(project_root: Path, dataset: str) -> None:
             color_continuous_scale="Reds",
         )
         fig2.update_layout(height=350, xaxis_tickangle=-30)
-        st.plotly_chart(fig2, use_container_width=True)
+        st.plotly_chart(fig2, width='stretch')
 
     # RE comparison
     if "mean_re_held_out" in df.columns and "mean_re_benign" in df.columns:
@@ -362,17 +362,17 @@ def page_unseen_attack(project_root: Path, dataset: str) -> None:
             title="Mean Reconstruction Error: Unseen Attack vs Benign",
             height=350, xaxis_tickangle=-30,
         )
-        st.plotly_chart(fig3, use_container_width=True)
+        st.plotly_chart(fig3, width='stretch')
 
     st.markdown("#### Full results table")
-    st.dataframe(df, use_container_width=True, hide_index=True)
+    st.dataframe(df, width='stretch', hide_index=True)
 
     # Images
     imgs = list(unseen_dir.glob("unseen_*.png"))
     if imgs:
         st.markdown("#### Error distribution plots")
         for img in imgs[:4]:
-            st.image(str(img), caption=img.stem.replace("_", " "), use_container_width=True)
+            st.image(str(img), caption=img.stem.replace("_", " "), width='stretch')
 
 
 # ─────────────────────────────────────────────
@@ -427,7 +427,7 @@ def page_baselines(project_root: Path, dataset: str) -> None:
             yaxis_range=[0, 1.05],
             height=420,
         )
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
 
     # Latency comparison
     if "latency_ms_per_sample" in df.columns:
@@ -438,10 +438,10 @@ def page_baselines(project_root: Path, dataset: str) -> None:
             color="model", color_discrete_sequence=px.colors.qualitative.Pastel,
         )
         fig2.update_layout(height=350, xaxis_tickangle=-30, showlegend=False)
-        st.plotly_chart(fig2, use_container_width=True)
+        st.plotly_chart(fig2, width='stretch')
 
     st.markdown("#### Results table")
-    st.dataframe(df, use_container_width=True, hide_index=True)
+    st.dataframe(df, width='stretch', hide_index=True)
 
 
 # ─────────────────────────────────────────────
@@ -512,7 +512,7 @@ def page_temporal(project_root: Path, dataset: str) -> None:
                 yaxis_range=[0, 1.05],
                 height=400,
             )
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width='stretch')
 
             st.markdown("#### Generalization gap analysis")
             df_comp["interpretation"] = df_comp["gap"].apply(
@@ -520,13 +520,13 @@ def page_temporal(project_root: Path, dataset: str) -> None:
                 else ("⚠️ Moderate gap" if abs(g) < 0.10
                       else "❌ Large gap (optimistic bias in random)")
             )
-            st.dataframe(df_comp, use_container_width=True, hide_index=True)
+            st.dataframe(df_comp, width='stretch', hide_index=True)
 
     # Temporal drift chart
     re_evo = temporal_dir / "temporal_re_evolution.png"
     if re_evo.exists():
         st.markdown("#### Reconstruction error evolution over time")
-        st.image(str(re_evo), use_container_width=True)
+        st.image(str(re_evo), width='stretch')
 
 
 # ─────────────────────────────────────────────

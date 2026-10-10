@@ -1,0 +1,19 @@
+{
+    "held_out_class": "r2l",
+    "n_held_out_samples": 1299,
+    "n_detected_by_ae": 9,
+    "detection_rate": 0.006928406466512702,
+    "false_negative_rate": 0.9930715935334873,
+    "mean_re_held_out": 1.4457064867019653,
+    "mean_re_benign": 0.025462530553340912,
+    "std_re_held_out": 18.60626220703125,
+    "threshold": 4.145444583147764,
+    "xgb_on_detected": {
+        "forced_classifications": {
+            "normal": 5,
+            "u2r": 4
+        },
+        "note": "These samples were correctly flagged as ANOMALOUS by AE. XGBoost forced them into a known class \u2014 real systems should label these as 'Unknown/Unseen Attack' when confidence is low.",
+        "mean_confidence": 0.7216506004333496
+    }
+}

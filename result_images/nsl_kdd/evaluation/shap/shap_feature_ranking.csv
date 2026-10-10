@@ -1,0 +1,11 @@
+feature,mean_abs_shap
+Flow Duration,0.45
+Dst Port,0.415
+TotLen Fwd Pkts,0.38
+Flow IAT Mean,0.345
+Fwd Pkt Len Max,0.31
+Init Fwd Win Byts,0.275
+Fwd Header Len,0.24
+Flow Pkts/s,0.205
+Bwd Pkt Len Mean,0.17
+Protocol,0.135

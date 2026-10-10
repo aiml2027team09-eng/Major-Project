@@ -1,0 +1,16 @@
+# Canonical Research Environment Requirements
+# Python 3.13.3 on Windows-11
+numpy==2.2.6
+pandas==2.2.3
+scikit-learn==1.6.1
+xgboost==3.4.0
+shap==0.52.0
+tensorflow==2.21.0
+matplotlib>=3.10.0
+seaborn>=0.13.2
+scipy>=1.15.0
+psutil>=6.1.0
+pyarrow>=19.0.0
+joblib>=1.4.2
+pyyaml>=6.0.2
+imbalanced-learn>=0.13.0

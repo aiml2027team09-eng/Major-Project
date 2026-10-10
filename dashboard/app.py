@@ -248,7 +248,7 @@ def page_overview(alerts: pd.DataFrame) -> None:
             ]
             if c in alerts.columns
         ]
-        st.dataframe(alerts[display_cols].head(20), use_container_width=True, hide_index=True)
+        st.dataframe(alerts[display_cols].head(20), width='stretch', hide_index=True)
 
 
 def page_alerts(alerts: pd.DataFrame) -> None:
@@ -291,7 +291,7 @@ def page_alerts(alerts: pd.DataFrame) -> None:
                     labels={"count": "Alerts per minute"},
                 )
                 fig.update_layout(height=350, margin=dict(l=20, r=20, t=40, b=20))
-                st.plotly_chart(fig, use_container_width=True)
+                st.plotly_chart(fig, width='stretch')
 
     with col2:
         if "predicted_label" in alerts.columns:
@@ -312,7 +312,7 @@ def page_alerts(alerts: pd.DataFrame) -> None:
                 hole=0.35,
             )
             fig.update_layout(height=350, margin=dict(l=20, r=20, t=40, b=20))
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width='stretch')
 
     col3, col4 = st.columns(2)
 
@@ -327,7 +327,7 @@ def page_alerts(alerts: pd.DataFrame) -> None:
                 labels={"confidence": "XGBoost confidence"},
             )
             fig.update_layout(height=350, barmode="overlay")
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width='stretch')
 
     with col4:
         if "reconstruction_error" in alerts.columns:
@@ -339,16 +339,16 @@ def page_alerts(alerts: pd.DataFrame) -> None:
                 labels={"reconstruction_error": "AE reconstruction error"},
             )
             fig.update_layout(height=350)
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width='stretch')
 
     if "dst_ip" in alerts.columns:
         st.markdown("#### Top destination IPs")
         top_dst = alerts["dst_ip"].value_counts().head(10).reset_index()
         top_dst.columns = ["dst_ip", "alerts"]
-        st.dataframe(top_dst, use_container_width=True, hide_index=True)
+        st.dataframe(top_dst, width='stretch', hide_index=True)
 
     st.markdown("#### Alert log table")
-    st.dataframe(alerts, use_container_width=True, hide_index=True)
+    st.dataframe(alerts, width='stretch', hide_index=True)
 
     csv = alerts.to_csv(index=False).encode("utf-8")
     st.download_button("Download filtered alerts (CSV)", csv, "ids_alerts.csv", "text/csv")
@@ -379,7 +379,7 @@ def page_performance() -> None:
         range_y=[0, 1.05],
     )
     fig.update_layout(height=420)
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width='stretch')
 
     val_df = metrics_to_long_df(metrics, dataset, split="validation")
     compare = pd.merge(
@@ -415,7 +415,7 @@ def page_performance() -> None:
             yaxis_range=[0, 1.05],
             height=420,
         )
-        st.plotly_chart(fig2, use_container_width=True)
+        st.plotly_chart(fig2, width='stretch')
 
     st.markdown("#### Result charts")
     images = list_result_images(PROJECT_ROOT, dataset)
@@ -431,7 +431,7 @@ def page_performance() -> None:
     cols = st.columns(2)
     for i, name in enumerate(chart_names):
         with cols[i % 2]:
-            st.image(str(images[name]), caption=name.replace("_", " ").title(), use_container_width=True)
+            st.image(str(images[name]), caption=name.replace("_", " ").title(), width='stretch')
 
 
 def page_expected_outcomes() -> None:
@@ -468,7 +468,7 @@ def page_expected_outcomes() -> None:
         display[
             ["dataset", "stage", "metric", "expected", "actual", "delta", "status"]
         ],
-        use_container_width=True,
+        width='stretch',
         hide_index=True,
     )
 
@@ -484,7 +484,7 @@ def page_expected_outcomes() -> None:
         range_y=[0, 1.05],
     )
     fig.add_hline(y=0.85, line_dash="dash", line_color="gray", annotation_text="Sample target line")
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width='stretch')
 
     with st.expander("View configured targets"):
         st.json(EXPECTED_TARGETS)
@@ -542,7 +542,7 @@ def page_retrain() -> None:
             fig.add_trace(go.Bar(name="Before", x=compare_df["metric"], y=compare_df["before"]))
             fig.add_trace(go.Bar(name="After", x=compare_df["metric"], y=compare_df["after"]))
             fig.update_layout(barmode="group", title="Before vs after live retrain", height=380)
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width='stretch')
 
         retrain_meta = load_retrain_results(PROJECT_ROOT, dataset)
         threshold = get_threshold_info(PROJECT_ROOT, dataset)

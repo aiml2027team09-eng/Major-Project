@@ -1,0 +1,11 @@
+{
+  "method": "Chronological Split (70/15/15)",
+  "n_train": 469791,
+  "n_test": 100671,
+  "ae_metrics": {
+    "accuracy": 0.9999,
+    "precision": 1.0,
+    "recall": 0.5,
+    "f1": 0.6667
+  }
+}

@@ -1,0 +1,4 @@
+Label,Train,Validation,Test,Total,Percentage
+Benign,403925,86556,86556,577037,85.98
+SSH-Bruteforce,65829,14106,14106,94041,14.01
+FTP-BruteForce,37,8,8,53,0.01

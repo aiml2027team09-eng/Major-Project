@@ -1,0 +1,90 @@
+{
+    "Percentile_95.0": {
+        "threshold": 0.36320972442626953,
+        "method": "Percentile_95.0",
+        "precision": 0.0016147635524798155,
+        "recall": 0.00049596145670965,
+        "f1": 0.0007588487180877012,
+        "accuracy": 0.8168769246051455
+    },
+    "Percentile_97.5": {
+        "threshold": 0.6794217228889465,
+        "method": "Percentile_97.5",
+        "precision": 0.0027649769585253456,
+        "recall": 0.00042510982003684286,
+        "f1": 0.0007369196757553427,
+        "accuracy": 0.8383629681136386
+    },
+    "Percentile_99.0": {
+        "threshold": 2.1161928176879883,
+        "method": "Percentile_99.0",
+        "precision": 0.0034522439585730723,
+        "recall": 0.00021255491001842143,
+        "f1": 0.00040045384769405324,
+        "accuracy": 0.8512267805701798
+    },
+    "Percentile_99.5": {
+        "threshold": 2.562798261642456,
+        "method": "Percentile_99.5",
+        "precision": 0.006880733944954129,
+        "recall": 0.00021255491001842143,
+        "f1": 0.0004123711340206186,
+        "accuracy": 0.8555279626502433
+    },
+    "Percentile_99.9": {
+        "threshold": 7.611516952514648,
+        "method": "Percentile_99.9",
+        "precision": 0.02247191011235955,
+        "recall": 0.00014170327334561429,
+        "f1": 0.0002816306414137858,
+        "accuracy": 0.8589550014900169
+    },
+    "Sigma_2.0": {
+        "threshold": 25830.200256347656,
+        "method": "Sigma_2.0",
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "accuracy": 0.8597894109466574
+    },
+    "Sigma_2.5": {
+        "threshold": 32276.693420410156,
+        "method": "Sigma_2.5",
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "accuracy": 0.8597894109466574
+    },
+    "Sigma_3.0": {
+        "threshold": 38723.186584472656,
+        "method": "Sigma_3.0",
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "accuracy": 0.8597894109466574
+    },
+    "Sigma_3.5": {
+        "threshold": 45169.679748535156,
+        "method": "Sigma_3.5",
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "accuracy": 0.8597894109466574
+    },
+    "Validation_F1_Optimized": {
+        "threshold": 0.8894969820976257,
+        "method": "Validation_F1_Optimized",
+        "precision": 0.0028785261945883708,
+        "recall": 0.0003542581833640357,
+        "f1": 0.0006308750236578134,
+        "accuracy": 0.8426442833018775
+    },
+    "Youden_J_Optimized": {
+        "threshold": 0.19727326132357142,
+        "method": "Youden_J_Optimized",
+        "precision": 0.6216944064279722,
+        "recall": 0.9977327476264701,
+        "f1": 0.7660546715626275,
+        "accuracy": 0.9145624317075594
+    }
+}

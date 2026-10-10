@@ -1,0 +1,9 @@
+Feature,Training Mean (Standardized),Training Std,Live Flow Mean (Standardized),Live Flow Std,Distribution Shift Diagnostic
+Init Fwd Win Byts,-0.2436,0.8591,-0.85,0.12,Handshake SYN missing -> Window defaults to 0
+Init Bwd Win Byts,0.0693,1.0624,-0.85,0.12,Handshake SYN missing -> Window defaults to 0
+Active Mean,0.0186,1.0773,-0.62,0.05,Short flows lack >= 5s idle phase
+Idle Mean,0.0016,1.0784,-0.62,0.05,Short flows lack >= 5s idle phase
+Flow Duration,0.0013,1.0784,0.1631,0.9706,Minor timing granularity skew
+Flow IAT Std,0.0005,1.0785,0.1623,0.9706,Minor timing granularity skew
+Fwd Pkt Len Mean,-0.0805,1.056,0.0779,0.9504,Minor timing granularity skew
+Tot Fwd Pkts,-0.0396,1.0732,0.1214,0.9659,Minor timing granularity skew

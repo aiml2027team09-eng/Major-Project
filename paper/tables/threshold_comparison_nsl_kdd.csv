@@ -1,0 +1,13 @@
+Method Category,Threshold Method,Calibrated Threshold,Test Precision,Test Recall,Test F1-Score,Test FPR,Test FNR,Test Accuracy
+Fixed Percentile,Percentile_95.0,0.141503,0.9393,0.8233,0.8775,0.0491,0.1767,0.8898
+Fixed Percentile,Percentile_97.5,0.208575,0.9585,0.6037,0.7408,0.0241,0.3963,0.7974
+Fixed Percentile,Percentile_99.0,0.58198,0.7692,0.0376,0.0717,0.0104,0.9624,0.5331
+Fixed Percentile,Percentile_99.5,0.734429,0.8287,0.0277,0.0537,0.0053,0.9723,0.531
+Fixed Percentile,Percentile_99.9,8.803368,0.5882,0.0009,0.0019,0.0006,0.9991,0.5206
+Statistical Sigma,Sigma_2.0,1.472107,0.5664,0.006,0.0119,0.0042,0.994,0.5211
+Statistical Sigma,Sigma_2.5,1.824787,0.2794,0.0018,0.0036,0.0042,0.9982,0.5191
+Statistical Sigma,Sigma_3.0,2.177468,0.2656,0.0016,0.0032,0.0041,0.9984,0.5191
+Statistical Sigma,Sigma_3.5,2.530148,0.2698,0.0016,0.0032,0.004,0.9984,0.5191
+Optimization,Validation_F1_Optimized,0.083984,0.9193,0.9313,0.9253,0.0753,0.0687,0.9279
+Optimization,Youden_J_Optimized,0.083984,0.9193,0.9313,0.9253,0.0753,0.0687,0.9279
+Adaptive Window,Adaptive_Sliding_Window_w500_p95,0.00386,0.7277,0.8853,0.7988,0.3053,0.1147,0.7861

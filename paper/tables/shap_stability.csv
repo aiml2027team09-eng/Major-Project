@@ -1,0 +1,2 @@
+Attack Class,Evaluated Samples,Top-5 Jaccard Stability,Stability Assessment,Top Persistent Signatures
+SSH-Bruteforce,150,0.8899,High (> 0.70),"numerical__Fwd Act Data Pkts, numerical__Fwd Header Len, numerical__Dst Port"

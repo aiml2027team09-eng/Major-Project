@@ -1,0 +1,24 @@
+{
+    "dataset_name": "CSE-CIC-IDS2018 (Brute-Force Subset)",
+    "seed": 42,
+    "total_samples": 671131,
+    "train_samples": 469791,
+    "val_samples": 100670,
+    "test_samples": 100670,
+    "feature_count": 78,
+    "duplicates_removed": 373620,
+    "class_distribution_train": {
+        "Benign": 403925,
+        "SSH-Bruteforce": 65829,
+        "FTP-BruteForce": 37
+    },
+    "class_distribution_test": {
+        "Benign": 86556,
+        "SSH-Bruteforce": 14106,
+        "FTP-BruteForce": 8
+    },
+    "train_test_overlap_count": 0,
+    "train_val_overlap_count": 0,
+    "val_test_overlap_count": 0,
+    "leakage_audit_status": "ZERO_OVERLAP_CONFIRMED"
+}

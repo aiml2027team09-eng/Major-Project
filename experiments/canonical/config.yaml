@@ -1,0 +1,48 @@
+dataset:
+  primary: "cicids2018"
+  secondary: "nsl_kdd"
+  train_split: 0.70
+  val_split: 0.15
+  test_split: 0.15
+  random_state: 42
+  seeds: [42, 123, 456, 789, 1024]
+
+preprocessing:
+  drop_duplicates_globally: true
+  impute_inf_nan: true
+  scaling: "standard"
+  apply_smote_train_only: true
+  smote_k_neighbors: 5
+  max_samples_per_class: 50000
+
+autoencoder:
+  epochs: 80
+  batch_size: 512
+  learning_rate: 0.0005
+  dropout_rate: 0.2
+  early_stopping_patience: 10
+  architectures:
+    baseline: [128, 64, 32, 16]
+    compact: [128, 64, 32]
+    expanded: [256, 128, 64, 32]
+
+thresholding:
+  percentiles: [95.0, 97.5, 99.0, 99.5, 99.9]
+  k_sigma: [2.0, 2.5, 3.0, 3.5]
+  tuning_metric: "f1"
+  min_val_precision: 0.85
+  adaptive_window_size: 100
+  adaptive_percentile: 98.0
+
+xgboost:
+  n_estimators: 500
+  max_depth: 6
+  learning_rate: 0.03
+  subsample: 0.9
+  colsample_bytree: 0.8
+  early_stopping_rounds: 25
+
+explainability:
+  shap_sample_size: 200
+  top_k_features: 5
+  stability_perturbation_noise: 0.05

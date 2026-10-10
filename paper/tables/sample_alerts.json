@@ -1,0 +1,182 @@
+[
+    {
+        "alert_id": "ALERT-CANONICAL-001",
+        "true_attack": "SSH-Bruteforce",
+        "predicted_attack": "SSH-Bruteforce",
+        "confidence": 0.9998,
+        "reconstruction_error": 0.365,
+        "anomaly_threshold": 0.1973,
+        "severity": "CRITICAL",
+        "top_5_contributing_features": [
+            {
+                "feature": "numerical__Fwd Act Data Pkts",
+                "value": -0.6806781888008118,
+                "shap_attribution": -2.9548373222351074
+            },
+            {
+                "feature": "numerical__Dst Port",
+                "value": -0.42290690541267395,
+                "shap_attribution": 2.531869411468506
+            },
+            {
+                "feature": "numerical__URG Flag Cnt",
+                "value": 4.372686862945557,
+                "shap_attribution": 2.3225162029266357
+            },
+            {
+                "feature": "numerical__ACK Flag Cnt",
+                "value": 1.9232271909713745,
+                "shap_attribution": 1.2917702198028564
+            },
+            {
+                "feature": "numerical__Fwd Header Len",
+                "value": -0.11983363330364227,
+                "shap_attribution": -0.6590358018875122
+            }
+        ]
+    },
+    {
+        "alert_id": "ALERT-CANONICAL-002",
+        "true_attack": "SSH-Bruteforce",
+        "predicted_attack": "SSH-Bruteforce",
+        "confidence": 1.0,
+        "reconstruction_error": 0.365,
+        "anomaly_threshold": 0.1973,
+        "severity": "CRITICAL",
+        "top_5_contributing_features": [
+            {
+                "feature": "numerical__Fwd Act Data Pkts",
+                "value": 1.8201435804367065,
+                "shap_attribution": 3.942884683609009
+            },
+            {
+                "feature": "numerical__Fwd Header Len",
+                "value": 0.36508604884147644,
+                "shap_attribution": 1.8974766731262207
+            },
+            {
+                "feature": "numerical__Dst Port",
+                "value": -0.42290690541267395,
+                "shap_attribution": 0.2558837831020355
+            },
+            {
+                "feature": "numerical__Bwd Header Len",
+                "value": 0.14866240322589874,
+                "shap_attribution": 0.10973186790943146
+            },
+            {
+                "feature": "numerical__Fwd Pkt Len Max",
+                "value": 1.1321511268615723,
+                "shap_attribution": 0.07421769201755524
+            }
+        ]
+    },
+    {
+        "alert_id": "ALERT-CANONICAL-003",
+        "true_attack": "SSH-Bruteforce",
+        "predicted_attack": "SSH-Bruteforce",
+        "confidence": 1.0,
+        "reconstruction_error": 0.365,
+        "anomaly_threshold": 0.1973,
+        "severity": "CRITICAL",
+        "top_5_contributing_features": [
+            {
+                "feature": "numerical__Fwd Act Data Pkts",
+                "value": 1.8201435804367065,
+                "shap_attribution": 3.9165120124816895
+            },
+            {
+                "feature": "numerical__Fwd Header Len",
+                "value": 0.436926007270813,
+                "shap_attribution": 1.9274827241897583
+            },
+            {
+                "feature": "numerical__Dst Port",
+                "value": -0.42290690541267395,
+                "shap_attribution": 0.2558837831020355
+            },
+            {
+                "feature": "numerical__Fwd IAT Min",
+                "value": -0.0005299810436554253,
+                "shap_attribution": 0.19767235219478607
+            },
+            {
+                "feature": "numerical__Bwd Header Len",
+                "value": 0.14866240322589874,
+                "shap_attribution": 0.10973186790943146
+            }
+        ]
+    },
+    {
+        "alert_id": "ALERT-CANONICAL-004",
+        "true_attack": "SSH-Bruteforce",
+        "predicted_attack": "SSH-Bruteforce",
+        "confidence": 1.0,
+        "reconstruction_error": 0.365,
+        "anomaly_threshold": 0.1973,
+        "severity": "CRITICAL",
+        "top_5_contributing_features": [
+            {
+                "feature": "numerical__Fwd Act Data Pkts",
+                "value": 1.8201435804367065,
+                "shap_attribution": 3.8074724674224854
+            },
+            {
+                "feature": "numerical__Fwd Header Len",
+                "value": 0.36508604884147644,
+                "shap_attribution": 1.9114956855773926
+            },
+            {
+                "feature": "numerical__Fwd IAT Min",
+                "value": -0.0005298992618918419,
+                "shap_attribution": 0.33305925130844116
+            },
+            {
+                "feature": "numerical__Dst Port",
+                "value": -0.42290690541267395,
+                "shap_attribution": 0.26056262850761414
+            },
+            {
+                "feature": "numerical__Bwd Header Len",
+                "value": 0.14866240322589874,
+                "shap_attribution": 0.10973186790943146
+            }
+        ]
+    },
+    {
+        "alert_id": "ALERT-CANONICAL-005",
+        "true_attack": "SSH-Bruteforce",
+        "predicted_attack": "SSH-Bruteforce",
+        "confidence": 1.0,
+        "reconstruction_error": 0.365,
+        "anomaly_threshold": 0.1973,
+        "severity": "CRITICAL",
+        "top_5_contributing_features": [
+            {
+                "feature": "numerical__Fwd Act Data Pkts",
+                "value": 1.8201435804367065,
+                "shap_attribution": 3.9084131717681885
+            },
+            {
+                "feature": "numerical__Fwd Header Len",
+                "value": 0.36508604884147644,
+                "shap_attribution": 1.930070161819458
+            },
+            {
+                "feature": "numerical__Dst Port",
+                "value": -0.42290690541267395,
+                "shap_attribution": 0.2558837831020355
+            },
+            {
+                "feature": "numerical__Fwd IAT Min",
+                "value": -0.0005299841286614537,
+                "shap_attribution": 0.1855040341615677
+            },
+            {
+                "feature": "numerical__Bwd Header Len",
+                "value": 0.16087639331817627,
+                "shap_attribution": 0.10973186790943146
+            }
+        ]
+    }
+]

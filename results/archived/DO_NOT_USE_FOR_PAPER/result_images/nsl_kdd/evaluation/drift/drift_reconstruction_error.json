@@ -1,0 +1,36 @@
+{
+    "feature": "reconstruction_error",
+    "timestamp": "2026-10-09T18:59:21",
+    "drift_detected": false,
+    "severity": "MARGINAL",
+    "votes": {
+        "ks": true,
+        "psi": false,
+        "jsd": false
+    },
+    "ks_test": {
+        "method": "ks_test",
+        "statistic": 0.14761232376358824,
+        "p_value": 5.616522087547294e-196,
+        "alpha": 0.05,
+        "drift_detected": true,
+        "severity": "MARGINAL"
+    },
+    "jsd": {
+        "method": "jsd",
+        "jsd_value": 0.00038706602386842377,
+        "threshold_minor": 0.05,
+        "threshold_major": 0.15,
+        "drift_detected": false,
+        "severity": "NONE"
+    },
+    "recommendation": "No action required. Model is operating in distribution.",
+    "psi": {
+        "method": "psi",
+        "psi_value": 0.0007061131434816135,
+        "threshold_minor": 0.1,
+        "threshold_major": 0.25,
+        "drift_detected": false,
+        "severity": "NONE"
+    }
+}

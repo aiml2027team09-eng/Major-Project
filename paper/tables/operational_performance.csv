@@ -1,0 +1,7 @@
+Pipeline Stage,Latency per Flow (ms),Throughput (flows/s),Operational Role
+Feature Preprocessing & Scaling,0.0002,6468304,Deterministic per flow
+Autoencoder Anomaly Detection,0.1808,5532,First-stage gatekeeper
+XGBoost Attack Classification,0.0086,115888,Conditional (on anomaly)
+Selective SHAP Attribution,1.35,740,Conditional (on alert)
+Complete Pipeline (Detection Only),0.1829,5466,Full operational path
+Complete Pipeline (Detection + SHAP),0.4995,2001,Full path + Alert Explanation

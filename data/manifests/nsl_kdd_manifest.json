@@ -1,0 +1,28 @@
+{
+    "dataset_name": "NSL-KDD",
+    "seed": 42,
+    "total_samples": 147790,
+    "train_samples": 103453,
+    "val_samples": 22168,
+    "test_samples": 22169,
+    "feature_count": 41,
+    "duplicates_removed": 727,
+    "class_distribution_train": {
+        "normal": 53845,
+        "dos": 37087,
+        "probe": 10077,
+        "r2l": 1592,
+        "u2r": 852
+    },
+    "class_distribution_test": {
+        "normal": 11538,
+        "dos": 7948,
+        "probe": 2160,
+        "r2l": 341,
+        "u2r": 182
+    },
+    "train_test_overlap_count": 0,
+    "train_val_overlap_count": 0,
+    "val_test_overlap_count": 0,
+    "leakage_audit_status": "ZERO_OVERLAP_CONFIRMED"
+}

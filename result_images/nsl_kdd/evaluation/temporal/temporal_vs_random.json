@@ -1,0 +1,22 @@
+{
+  "accuracy": {
+    "random": 0.9134,
+    "temporal": 0.9999,
+    "generalization_gap": 0.0865
+  },
+  "macro_f1": {
+    "random": 0.5805,
+    "temporal": 0.8333,
+    "generalization_gap": 0.2528
+  },
+  "recall": {
+    "random": 0.997,
+    "temporal": 0.5,
+    "generalization_gap": -0.497
+  },
+  "fpr": {
+    "random": 0.1003,
+    "temporal": 0.0,
+    "generalization_gap": -0.1003
+  }
+}

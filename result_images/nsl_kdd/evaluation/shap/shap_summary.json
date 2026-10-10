@@ -1,0 +1,21 @@
+{
+  "n_samples_analysed": 150,
+  "top_k": 5,
+  "stability": {
+    "mean_rank_deviation": 0.1101,
+    "jaccard_stability": 0.8899,
+    "assessment": "High Consistency (> 0.70)"
+  },
+  "top_10_features": [
+    "Flow Duration",
+    "Dst Port",
+    "TotLen Fwd Pkts",
+    "Flow IAT Mean",
+    "Fwd Pkt Len Max",
+    "Init Fwd Win Byts",
+    "Fwd Header Len",
+    "Flow Pkts/s",
+    "Bwd Pkt Len Mean",
+    "Protocol"
+  ]
+}

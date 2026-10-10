@@ -12,6 +12,11 @@ cic.csv
 # Processed data
 processed_CICIDS2018/
 processed_NSL_KDD/
+data/cleaned/
+data/splits/
+data/raw/
+*.parquet
+*.npy
 
 # Trained models (regenerate with hybrid_ids_model.py)
 trained_models/

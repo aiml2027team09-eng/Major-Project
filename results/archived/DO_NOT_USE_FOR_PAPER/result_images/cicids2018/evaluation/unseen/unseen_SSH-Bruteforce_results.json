@@ -1,0 +1,12 @@
+{
+    "held_out_class": "SSH-Bruteforce",
+    "n_held_out_samples": 17598,
+    "n_detected_by_ae": 0,
+    "detection_rate": 0.0,
+    "false_negative_rate": 1.0,
+    "mean_re_held_out": 0.24028509855270386,
+    "mean_re_benign": 0.1214476153254509,
+    "std_re_held_out": 0.05273134633898735,
+    "threshold": 18.13063868880272,
+    "xgb_on_detected": {}
+}

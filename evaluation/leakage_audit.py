@@ -50,7 +50,7 @@ class AuditResult:
         self.detail = detail
 
     def __repr__(self):
-        icon = {"PASS": "✓", "WARN": "⚠", "FAIL": "✗"}[self.status]
+        icon = {"PASS": "[OK]", "WARN": "[WARN]", "FAIL": "[FAIL]"}[self.status]
         return f"  [{self.status}] {icon} {self.check}: {self.detail}"
 
     def to_dict(self) -> dict:

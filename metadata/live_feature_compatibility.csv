@@ -1,0 +1,79 @@
+Feature,Training Definition,Live Implementation,Compatibility Status,Discrepancy Notes
+Dst Port,TCP/UDP Destination port,scapy.layers.inet.TCP/UDP.dport,EXACT,Direct integer match
+Protocol,"IP protocol number (6=TCP,  17=UDP)",scapy.layers.inet.IP.proto,EXACT,Direct integer match
+Flow Duration,Microseconds between first and last packet,Microseconds (t_end - t_start) * 1e6,EXACT,Matches within microsecond clock resolution
+Tot Fwd Pkts,Total packets in forward direction,Forward packet counter,EXACT,Exact count
+Tot Bwd Pkts,Total packets in backward direction,Backward packet counter,EXACT,Exact count
+TotLen Fwd Pkts,Total payload/header bytes in forward direction,Sum of IP total length forward,EXACT,Matches Scapy IP len
+TotLen Bwd Pkts,Total payload/header bytes in backward direction,Sum of IP total length backward,EXACT,Matches Scapy IP len
+Fwd Pkt Len Max,Max packet length forward,max(pkt_lengths_fwd),EXACT,Exact match
+Fwd Pkt Len Min,Min packet length forward,min(pkt_lengths_fwd),EXACT,Exact match
+Fwd Pkt Len Mean,Mean packet length forward,np.mean(pkt_lengths_fwd),EXACT,Exact match
+Fwd Pkt Len Std,Std packet length forward,np.std(pkt_lengths_fwd),EXACT,Exact match
+Bwd Pkt Len Max,Max packet length backward,max(pkt_lengths_bwd),EXACT,Exact match
+Bwd Pkt Len Min,Min packet length backward,min(pkt_lengths_bwd),EXACT,Exact match
+Bwd Pkt Len Mean,Mean packet length backward,np.mean(pkt_lengths_bwd),EXACT,Exact match
+Bwd Pkt Len Std,Std packet length backward,np.std(pkt_lengths_bwd),EXACT,Exact match
+Flow Byts/s,Total bytes divided by duration,Total bytes / duration_sec,EXACT,Continuous rate calculation
+Flow Pkts/s,Total packets divided by duration,Total packets / duration_sec,EXACT,Continuous rate calculation
+Flow IAT Mean,Mean inter-arrival time across flow,np.mean(iat_all),EXACT,Exact calculation
+Flow IAT Std,Std inter-arrival time across flow,np.std(iat_all),EXACT,Exact calculation
+Flow IAT Max,Max inter-arrival time across flow,max(iat_all),EXACT,Exact calculation
+Flow IAT Min,Min inter-arrival time across flow,min(iat_all),EXACT,Exact calculation
+Fwd IAT Tot,Total inter-arrival time forward,sum(iat_fwd),EXACT,Exact calculation
+Fwd IAT Mean,Mean inter-arrival time forward,np.mean(iat_fwd),EXACT,Exact calculation
+Fwd IAT Std,Std inter-arrival time forward,np.std(iat_fwd),EXACT,Exact calculation
+Fwd IAT Max,Max inter-arrival time forward,max(iat_fwd),EXACT,Exact calculation
+Fwd IAT Min,Min inter-arrival time forward,min(iat_fwd),EXACT,Exact calculation
+Bwd IAT Tot,Total inter-arrival time backward,sum(iat_bwd),EXACT,Exact calculation
+Bwd IAT Mean,Mean inter-arrival time backward,np.mean(iat_bwd),EXACT,Exact calculation
+Bwd IAT Std,Std inter-arrival time backward,np.std(iat_bwd),EXACT,Exact calculation
+Bwd IAT Max,Max inter-arrival time backward,max(iat_bwd),EXACT,Exact calculation
+Bwd IAT Min,Min inter-arrival time backward,min(iat_bwd),EXACT,Exact calculation
+Fwd PSH Flags,Count of PSH flags in forward direction,TCP flag bitmask check,EXACT,Matches TCP.flags.P
+Bwd PSH Flags,Count of PSH flags in backward direction,TCP flag bitmask check,EXACT,Matches TCP.flags.P
+Fwd URG Flags,Count of URG flags in forward direction,TCP flag bitmask check,EXACT,Matches TCP.flags.U
+Bwd URG Flags,Count of URG flags in backward direction,TCP flag bitmask check,EXACT,Matches TCP.flags.U
+Fwd Header Len,Total TCP/UDP header length forward,Sum of header bytes forward,EXACT,Matches IP/TCP header length
+Bwd Header Len,Total TCP/UDP header length backward,Sum of header bytes backward,EXACT,Matches IP/TCP header length
+Fwd Pkts/s,Forward packet rate,Tot Fwd Pkts / duration,EXACT,Continuous rate calculation
+Bwd Pkts/s,Backward packet rate,Tot Bwd Pkts / duration,EXACT,Continuous rate calculation
+Pkt Len Min,Min packet length overall,min(all_lengths),EXACT,Exact match
+Pkt Len Max,Max packet length overall,max(all_lengths),EXACT,Exact match
+Pkt Len Mean,Mean packet length overall,np.mean(all_lengths),EXACT,Exact match
+Pkt Len Std,Std packet length overall,np.std(all_lengths),EXACT,Exact match
+Pkt Len Var,Variance of packet length,np.var(all_lengths),EXACT,Exact match
+FIN Flag Cnt,Total FIN flags in flow,TCP flag bitmask check,EXACT,Matches TCP.flags.F
+SYN Flag Cnt,Total SYN flags in flow,TCP flag bitmask check,EXACT,Matches TCP.flags.S
+RST Flag Cnt,Total RST flags in flow,TCP flag bitmask check,EXACT,Matches TCP.flags.R
+PSH Flag Cnt,Total PSH flags in flow,TCP flag bitmask check,EXACT,Matches TCP.flags.P
+ACK Flag Cnt,Total ACK flags in flow,TCP flag bitmask check,EXACT,Matches TCP.flags.A
+URG Flag Cnt,Total URG flags in flow,TCP flag bitmask check,EXACT,Matches TCP.flags.U
+CWE Flag Count,Total CWE flags in flow,TCP flag bitmask check,EXACT,Matches TCP.flags.C
+ECE Flag Cnt,Total ECE flags in flow,TCP flag bitmask check,EXACT,Matches TCP.flags.E
+Down/Up Ratio,Ratio of backward to forward packets,Tot Bwd Pkts / Tot Fwd Pkts,EXACT,Exact ratio calculation
+Pkt Size Avg,Average packet size,Tot Bytes / Tot Pkts,EXACT,Exact calculation
+Fwd Seg Size Avg,Average segment size forward,TotLen Fwd Pkts / Tot Fwd Pkts,EXACT,Exact calculation
+Bwd Seg Size Avg,Average segment size backward,TotLen Bwd Pkts / Tot Bwd Pkts,EXACT,Exact calculation
+Fwd Byts/b Avg,Forward bulk byte rate,CICFlowMeter bulk heuristic,APPROXIMATE,Bulk state requires window timeout tracking
+Fwd Pkts/b Avg,Forward bulk packet rate,CICFlowMeter bulk heuristic,APPROXIMATE,Bulk state requires window timeout tracking
+Fwd Blk Rate Avg,Forward bulk rate average,CICFlowMeter bulk heuristic,APPROXIMATE,Bulk state requires window timeout tracking
+Bwd Byts/b Avg,Backward bulk byte rate,CICFlowMeter bulk heuristic,APPROXIMATE,Bulk state requires window timeout tracking
+Bwd Pkts/b Avg,Backward bulk packet rate,CICFlowMeter bulk heuristic,APPROXIMATE,Bulk state requires window timeout tracking
+Bwd Blk Rate Avg,Backward bulk rate average,CICFlowMeter bulk heuristic,APPROXIMATE,Bulk state requires window timeout tracking
+Subflow Fwd Pkts,Average packets per subflow fwd,Tot Fwd Pkts / num_subflows,APPROXIMATE,Subflow boundary requires exact idle timeout
+Subflow Fwd Byts,Average bytes per subflow fwd,TotLen Fwd Pkts / num_subflows,APPROXIMATE,Subflow boundary requires exact idle timeout
+Subflow Bwd Pkts,Average packets per subflow bwd,Tot Bwd Pkts / num_subflows,APPROXIMATE,Subflow boundary requires exact idle timeout
+Subflow Bwd Byts,Average bytes per subflow bwd,TotLen Bwd Pkts / num_subflows,APPROXIMATE,Subflow boundary requires exact idle timeout
+Init Fwd Win Byts,Initial TCP window size forward,First SYN/ACK window field,APPROXIMATE,Requires capturing initial 3-way handshake packet
+Init Bwd Win Byts,Initial TCP window size backward,First SYN/ACK window field,APPROXIMATE,Requires capturing initial 3-way handshake packet
+Fwd Act Data Pkts,Count of fwd packets with >= 1 byte payload,Payload len > 0 check,EXACT,Exact match
+Fwd Seg Size Min,Minimum segment size forward,min(seg_sizes_fwd),EXACT,Exact match
+Active Mean,Mean active period duration (us),State-machine active/idle tracker,APPROXIMATE,Differs if flow does not exceed idle threshold (5s)
+Active Std,Std active period duration (us),State-machine active/idle tracker,APPROXIMATE,Defaults to 0 on short flows (<5s)
+Active Max,Max active period duration (us),State-machine active/idle tracker,APPROXIMATE,Defaults to duration on short flows
+Active Min,Min active period duration (us),State-machine active/idle tracker,APPROXIMATE,Defaults to duration on short flows
+Idle Mean,"Mean idle period duration (us), State-machine active/idle tracker, APPROXIMATE",Only populated if IAT > 5,000,000 us
+Idle Std,Std idle period duration (us),State-machine active/idle tracker,APPROXIMATE,Only populated if multiple idle periods exist
+Idle Max,"Max idle period duration (us), State-machine active/idle tracker, APPROXIMATE",Only populated if IAT > 5,000,000 us
+Idle Min,"Min idle period duration (us), State-machine active/idle tracker, APPROXIMATE",Only populated if IAT > 5,000,000 us

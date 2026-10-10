@@ -1,0 +1,49 @@
+{
+    "nsl_kdd": {
+        "dataset": "nsl_kdd",
+        "threshold_fixed": 0.2459823489189148,
+        "threshold_tuned": 4.145444583147764,
+        "threshold_adaptive": 6.196127366274595,
+        "experiment_a": {
+            "autoencoder": {
+                "accuracy": 0.43235450674237047,
+                "precision": 0.95,
+                "recall": 0.0029611158731395622,
+                "f1": 0.005903829721121728,
+                "fpr": 0.00020595201318092884,
+                "fnr": 0.9970388841268605,
+                "tp": 38,
+                "fp": 2,
+                "tn": 9709,
+                "fn": 12795
+            },
+            "xgboost": {
+                "accuracy": 0.7678317955997161,
+                "precision_weighted": 0.7533500132156864,
+                "recall_weighted": 0.7678317955997161,
+                "f1_weighted": 0.7290010076257434,
+                "f1_macro": 0.47947417331349984,
+                "precision_macro": 0.6286897064380309,
+                "recall_macro": 0.47620125244529454,
+                "roc_auc_ovr": 0.9285372285665596
+            },
+            "hybrid": {
+                "accuracy": 0.43128992193044713,
+                "precision_weighted": 0.5491882083658215,
+                "recall_weighted": 0.43128992193044713,
+                "f1_weighted": 0.2606456812979117,
+                "f1_macro": 0.123804280708768,
+                "precision_macro": 0.4147867448866339,
+                "recall_macro": 0.20165735279085867
+            }
+        },
+        "threshold_comparison": {
+            "fixed_threshold": 0.2459823489189148,
+            "adaptive_threshold": 6.196127366274595,
+            "fpr_delta": -0.014313664916074555,
+            "recall_delta": -0.24491545234941167,
+            "f1_delta": -0.3879855508996903
+        },
+        "drift_detected": false
+    }
+}

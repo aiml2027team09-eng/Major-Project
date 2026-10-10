@@ -1,0 +1,3 @@
+held_out_class,n_held_out_samples,n_detected_by_ae,detection_rate,false_negative_rate,mean_re_held_out,mean_re_benign,std_re_held_out,threshold,xgb_on_detected
+FTP-BruteForce,5902,0,0.0,1.0,0.6696822047233582,0.1214476153254509,0.8882237076759338,18.13063868880272,{}
+SSH-Bruteforce,17598,0,0.0,1.0,0.24028509855270386,0.1214476153254509,0.05273134633898735,18.13063868880272,{}

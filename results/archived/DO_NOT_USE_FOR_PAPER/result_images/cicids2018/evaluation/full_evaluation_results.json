@@ -1,0 +1,47 @@
+{
+    "dataset": "cicids2018",
+    "threshold_fixed": 0.5609651803970337,
+    "threshold_tuned": 18.13063868880272,
+    "threshold_adaptive": 27.158181756734848,
+    "experiment_a": {
+        "autoencoder": {
+            "accuracy": 0.8083487291342812,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "fpr": 0.00048304803308879025,
+            "fnr": 1.0,
+            "tp": 0,
+            "fp": 48,
+            "tn": 99321,
+            "fn": 23500
+        },
+        "xgboost": {
+            "accuracy": 1.0,
+            "precision_weighted": 1.0,
+            "recall_weighted": 1.0,
+            "f1_weighted": 1.0,
+            "f1_macro": 1.0,
+            "precision_macro": 1.0,
+            "recall_macro": 1.0,
+            "roc_auc_ovr": 1.0
+        },
+        "hybrid": {
+            "accuracy": 0.80873938910547,
+            "precision_weighted": 0.6540593994906888,
+            "recall_weighted": 0.80873938910547,
+            "f1_weighted": 0.723221270493988,
+            "f1_macro": 0.2980858359056507,
+            "precision_macro": 0.26957979636849,
+            "recall_macro": 0.3333333333333333
+        }
+    },
+    "threshold_comparison": {
+        "fixed_threshold": 0.5609651803970337,
+        "adaptive_threshold": 27.158181756734848,
+        "fpr_delta": -0.009821976672805401,
+        "recall_delta": -0.07323404255319149,
+        "f1_delta": -0.1312938663411657
+    },
+    "drift_detected": false
+}
