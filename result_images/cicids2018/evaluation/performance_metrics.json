@@ -1,0 +1,9 @@
+{
+    "ae_latency_ms_per_sample": 75.99069996892165,
+    "ae_throughput_fps": 13159.505050078178,
+    "xgb_latency_ms_per_sample": 6.033733331908782,
+    "xgb_throughput_fps": 165734.86844564413,
+    "total_latency_ms_per_sample": 82.02443330083042,
+    "cpu_percent": 24.1,
+    "memory_mb": 1953.70703125
+}

@@ -1,52 +1,22 @@
 {
   "nsl_kdd": {
-    "before": {
-      "autoencoder_test_accuracy": 0.8503,
-      "autoencoder_test_f1": 0.8543,
-      "hybrid_test_accuracy": 0.6989,
-      "overall_test_accuracy": 0.7317
+    "dataset": "nsl_kdd",
+    "retrained_on_live": true,
+    "normal_samples": 60046,
+    "live_oversample": 5,
+    "threshold_metric": "accuracy",
+    "threshold": 0.07863739946978793,
+    "validation": {
+      "accuracy": 0.9371295512277731,
+      "precision": 0.9467810150375939,
+      "recall": 0.9164202865590175,
+      "f1": 0.9313532878770369
     },
-    "after": {
-      "autoencoder_test_accuracy": 0.8664,
-      "autoencoder_test_f1": 0.8744,
-      "hybrid_test_accuracy": 0.7068,
-      "overall_test_accuracy": 0.7509
-    },
-    "delta": {
-      "autoencoder_test_accuracy": 0.0161,
-      "autoencoder_test_f1": 0.0201,
-      "hybrid_test_accuracy": 0.0079,
-      "overall_test_accuracy": 0.0192
-    },
-    "retrain_settings": {
-      "live_oversample": 10,
-      "threshold_metric": "accuracy",
-      "live_flows_captured": 50
-    }
-  },
-  "cicids2018": {
-    "before": {
-      "autoencoder_test_accuracy": 0.9104,
-      "autoencoder_test_f1": 0.7894,
-      "hybrid_test_accuracy": 1.0,
-      "overall_test_accuracy": 0.9768
-    },
-    "after": {
-      "autoencoder_test_accuracy": 0.9270,
-      "autoencoder_test_f1": 0.8398,
-      "hybrid_test_accuracy": 1.0,
-      "overall_test_accuracy": 0.9999
-    },
-    "delta": {
-      "autoencoder_test_accuracy": 0.0167,
-      "autoencoder_test_f1": 0.0504,
-      "hybrid_test_accuracy": 0.0,
-      "overall_test_accuracy": 0.0231
-    },
-    "retrain_settings": {
-      "live_oversample": 5,
-      "threshold_metric": "balanced",
-      "live_flows_captured": 23
+    "test": {
+      "accuracy": 0.8476756564939674,
+      "precision": 0.9547169811320755,
+      "recall": 0.7688771136912647,
+      "f1": 0.8517783149171271
     }
   }
 }

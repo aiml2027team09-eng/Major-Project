@@ -72,7 +72,18 @@ def main():
         action="store_true",
         help="List available capture interfaces and exit",
     )
+    parser.add_argument(
+        "--timeout",
+        "-t",
+        type=int,
+        default=5,
+        help="Flow idle timeout in seconds before analysis (default: 5s)",
+    )
     args = parser.parse_args()
+
+    import live_ids.config as live_config
+    if args.timeout:
+        live_config.FLOW_IDLE_TIMEOUT = args.timeout
 
     if args.list_interfaces:
         from live_ids.main import print_interfaces

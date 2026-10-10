@@ -1,3 +1,6 @@
+# ================================================================
+# HYBRID IDS REQUIREMENTS
+# ================================================================
 # Core ML pipeline
 numpy>=1.24.0
 pandas>=2.0.0
@@ -9,6 +12,18 @@ seaborn>=0.12.0
 tensorflow>=2.13.0
 xgboost>=2.0.0
 
+# Explainability
+shap>=0.43.0
+
+# Statistical analysis
+scipy>=1.11.0
+
+# Configuration management
+pyyaml>=6.0.0
+
+# Performance monitoring
+psutil>=5.9.0
+
 # GPU (optional)
 # XGBoost uses NVIDIA CUDA automatically when USE_GPU=True in hybrid_ids/config.py
 # TensorFlow GPU on Windows requires WSL2 — see README.md
@@ -19,3 +34,10 @@ scapy>=2.5.0
 # Dashboard
 streamlit>=1.28.0
 plotly>=5.18.0
+
+# API (optional — for deployment)
+# fastapi>=0.104.0
+# uvicorn>=0.24.0
+
+# Cloud deployment (optional)
+# boto3>=1.34.0

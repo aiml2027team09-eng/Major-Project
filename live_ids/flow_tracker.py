@@ -73,7 +73,7 @@ class LiveFlowTracker:
     """Capture packets, aggregate flows, emit completed flows for analysis."""
 
     def __init__(self, interface=None, on_flow_complete=None, feature_set=None):
-        self.interface = interface or config.INTERFACE
+        self.interface = resolve_interface_name(interface or config.INTERFACE)
         self.on_flow_complete = on_flow_complete
         self.feature_set = feature_set or config.FEATURE_SET
         self._connection_tracker = (
@@ -271,11 +271,71 @@ def list_interfaces():
     return get_if_list()
 
 
+def resolve_interface_name(name_or_alias: str | None) -> str | None:
+    """Resolve friendly names like 'Wi-Fi', 'Loopback', or '127.0.0.1' to Npcap device path."""
+    if not name_or_alias:
+        return None
+
+    query = name_or_alias.strip().lower()
+
+    if query in ("loopback", "lo", "127.0.0.1", "localhost"):
+        return "\\Device\\NPF_Loopback"
+
+    from scapy.all import IFACES, get_if_list
+
+    all_devs = get_if_list()
+
+    # Exact match in raw device names
+    for dev in all_devs:
+        if query == dev.lower():
+            return dev
+
+    # Match by Scapy IFACES friendly name or description or IP
+    try:
+        for dev, iface in IFACES.items():
+            iface_name = getattr(iface, "name", "").lower()
+            iface_desc = getattr(iface, "description", "").lower()
+            iface_ip = getattr(iface, "ip", "")
+
+            if query == iface_name or query == iface_desc or query == iface_ip:
+                return dev
+            if query in iface_name or query in iface_desc:
+                return dev
+    except Exception:
+        pass
+
+    return name_or_alias
+
+
 def pick_default_interface():
-    """Pick first non-loopback interface."""
+    """Pick active network interface (preferably Wi-Fi/Ethernet with an IP)."""
+    from scapy.all import IFACES, get_if_list
+
+    # 1. Look for active interface with a valid routable IP (e.g. 192.168.x.x, 10.x.x.x)
+    try:
+        for dev, iface in IFACES.items():
+            ip = getattr(iface, "ip", "")
+            name = getattr(iface, "name", "").lower()
+            desc = getattr(iface, "description", "").lower()
+            if ip and not ip.startswith("127.") and not ip.startswith("169.254."):
+                return dev
+    except Exception:
+        pass
+
+    # 2. Look for Wi-Fi or Ethernet
+    try:
+        for dev, iface in IFACES.items():
+            name = getattr(iface, "name", "").lower()
+            if "wi-fi" in name or "ethernet" in name:
+                return dev
+    except Exception:
+        pass
+
+    # 3. Fallback to first non-loopback interface
     interfaces = list_interfaces()
     for name in interfaces:
         lower = name.lower()
         if "loopback" not in lower and "lo" != lower:
             return name
     return interfaces[0] if interfaces else None
+

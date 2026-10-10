@@ -1,0 +1,36 @@
+{
+    "feature": "prediction_distribution",
+    "timestamp": "2026-10-09T18:59:22",
+    "drift_detected": false,
+    "severity": "MARGINAL",
+    "votes": {
+        "ks": true,
+        "psi": false,
+        "jsd": false
+    },
+    "ks_test": {
+        "method": "ks_test",
+        "statistic": 0.07727825055933518,
+        "p_value": 7.671278392103802e-54,
+        "alpha": 0.05,
+        "drift_detected": true,
+        "severity": "MARGINAL"
+    },
+    "jsd": {
+        "method": "jsd",
+        "jsd_value": 0.003855603018454044,
+        "threshold_minor": 0.05,
+        "threshold_major": 0.15,
+        "drift_detected": false,
+        "severity": "NONE"
+    },
+    "recommendation": "No action required. Model is operating in distribution.",
+    "psi": {
+        "method": "psi",
+        "psi_value": 0.030917874310463316,
+        "threshold_minor": 0.1,
+        "threshold_major": 0.25,
+        "drift_detected": false,
+        "severity": "NONE"
+    }
+}

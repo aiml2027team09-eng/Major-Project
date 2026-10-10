@@ -7,6 +7,7 @@ from pathlib import Path
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
+# pyrefly: ignore [missing-import]
 import streamlit as st
 
 from dashboard.alert_parser import load_all_alerts
@@ -22,12 +23,21 @@ from dashboard.metrics_loader import (
     metrics_to_long_df,
     get_threshold_info,
 )
+from dashboard.research_pages import (
+    page_ablation,
+    page_shap,
+    page_drift,
+    page_unseen_attack,
+    page_baselines,
+    page_temporal,
+    page_performance_extended,
+)
 from dataset_config import VALID_DATASETS
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 st.set_page_config(
-    page_title="Hybrid IDS Dashboard",
+    page_title="Hybrid IDS Research Dashboard",
     page_icon="🛡️",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -547,21 +557,45 @@ def page_retrain() -> None:
 
 
 def main() -> None:
-    st.title("Hybrid IDS — Alerts & Results Dashboard")
-    st.caption("Autoencoder + XGBoost intrusion detection | NSL-KDD & CICIDS2018")
+    st.title("🛡️ Hybrid IDS — Adaptive & Explainable NIDS Dashboard")
+    st.caption(
+        "Autoencoder + XGBoost intrusion detection | "
+        "CICIDS2018 & NSL-KDD | Adaptive thresholding | SHAP explainability"
+    )
 
     alerts = _load_alerts()
     filtered = _sidebar_filters(alerts)
 
-    tab_overview, tab_alerts, tab_perf, tab_outcomes, tab_retrain = st.tabs(
-        [
-            "Overview",
-            "Live Alerts",
-            "Model Performance",
-            "Expected Outcomes",
-            "Retrain Impact",
-        ]
-    )
+    # ── Research dataset selector (for research tabs) ─────────
+    with st.sidebar:
+        st.divider()
+        st.markdown("**Research Evaluation**")
+        research_dataset = st.selectbox(
+            "Research eval dataset",
+            options=list(VALID_DATASETS),
+            format_func=lambda x: dataset_display_name(x),
+            key="research_dataset",
+        )
+
+    # ── Tabs ─────────────────────────────────────────────────────
+    (
+        tab_overview, tab_alerts, tab_perf, tab_outcomes, tab_retrain,
+        tab_ablation, tab_shap, tab_drift, tab_unseen,
+        tab_baselines, tab_temporal, tab_realtime,
+    ) = st.tabs([
+        "📊 Overview",
+        "🚨 Live Alerts",
+        "📈 Model Performance",
+        "🎯 Expected Outcomes",
+        "🔄 Retrain Impact",
+        "🔬 Ablation Study",
+        "💡 SHAP Explainability",
+        "📉 Drift Detection",
+        "🔍 Unseen Attacks",
+        "📋 Baselines",
+        "⏱️ Temporal Eval",
+        "⚡ Performance",
+    ])
 
     with tab_overview:
         page_overview(filtered)
@@ -573,6 +607,22 @@ def main() -> None:
         page_expected_outcomes()
     with tab_retrain:
         page_retrain()
+
+    # ── Research tabs (use research_dataset selector) ─────────
+    with tab_ablation:
+        page_ablation(PROJECT_ROOT, research_dataset)
+    with tab_shap:
+        page_shap(PROJECT_ROOT, research_dataset)
+    with tab_drift:
+        page_drift(PROJECT_ROOT, research_dataset)
+    with tab_unseen:
+        page_unseen_attack(PROJECT_ROOT, research_dataset)
+    with tab_baselines:
+        page_baselines(PROJECT_ROOT, research_dataset)
+    with tab_temporal:
+        page_temporal(PROJECT_ROOT, research_dataset)
+    with tab_realtime:
+        page_performance_extended(PROJECT_ROOT, research_dataset)
 
 
 if __name__ == "__main__":

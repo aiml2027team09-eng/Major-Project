@@ -1,14 +1,14 @@
 {
   "dataset": "nsl_kdd",
   "Autoencoder": {
-    "validation_accuracy": 0.9325783234546994,
-    "validation_precision": 0.945814560113825,
-    "validation_recall": 0.9070957471002956,
-    "validation_f1": 0.9260506152774552,
-    "test_accuracy": 0.8356547196593329,
-    "test_precision": 0.964292980671414,
-    "test_recall": 0.7386425621444713,
-    "test_f1": 0.8365176719763492
+    "validation_accuracy": 0.9410986452159187,
+    "validation_precision": 0.9402728419121862,
+    "validation_recall": 0.9326813736638617,
+    "validation_f1": 0.9364617228977564,
+    "test_accuracy": 0.8571682044002839,
+    "test_precision": 0.9531441500895635,
+    "test_recall": 0.787812670458973,
+    "test_f1": 0.8626279863481229
   },
   "XGBoost": {
     "validation_accuracy": 0.9990474174428451,
@@ -21,23 +21,23 @@
     "test_f1": 0.7290010076257434
   },
   "Hybrid": {
-    "validation_accuracy": 0.9989328906805786,
-    "validation_precision": 0.9989749157090958,
-    "validation_recall": 0.9989328906805786,
-    "validation_f1": 0.9989479538799492,
-    "test_accuracy": 0.7047812817904374,
-    "test_precision": 0.8383404145516336,
-    "test_recall": 0.7047812817904374,
-    "test_f1": 0.7408465881345762
+    "validation_accuracy": 0.999082884328786,
+    "validation_precision": 0.999084998618837,
+    "validation_recall": 0.999082884328786,
+    "validation_f1": 0.9990832061276113,
+    "test_accuracy": 0.7161308569812388,
+    "test_precision": 0.83400069201495,
+    "test_recall": 0.7161308569812388,
+    "test_f1": 0.7428884278147195
   },
   "Overall": {
-    "validation_accuracy": 0.9562870448772227,
-    "validation_precision": 0.9594474336706236,
-    "validation_recall": 0.9562870448772227,
-    "validation_f1": 0.9549667789972872,
-    "test_accuracy": 0.7224982256919801,
-    "test_precision": 0.7337247468829802,
-    "test_recall": 0.7224982256919801,
-    "test_f1": 0.6815285107934459
+    "validation_accuracy": 0.9682472480948349,
+    "validation_precision": 0.9699267520947012,
+    "validation_recall": 0.9682472480948349,
+    "validation_f1": 0.966875630628222,
+    "test_accuracy": 0.745652945351313,
+    "test_precision": 0.7438391167157798,
+    "test_recall": 0.745652945351313,
+    "test_f1": 0.7044378788177897
   }
 }

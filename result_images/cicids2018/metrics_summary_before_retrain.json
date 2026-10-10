@@ -1,14 +1,14 @@
 {
   "dataset": "cicids2018",
   "Autoencoder": {
-    "validation_accuracy": 0.9091715566985977,
-    "validation_precision": 0.71303297082686,
-    "validation_recall": 0.8788136675035105,
-    "validation_f1": 0.7872908169099988,
-    "test_accuracy": 0.9103516753615639,
-    "test_precision": 0.7166857579228714,
-    "test_recall": 0.8785957446808511,
-    "test_f1": 0.7894243820375079
+    "validation_accuracy": 0.9378280933351781,
+    "validation_precision": 0.7605795768169273,
+    "validation_recall": 0.985021913961108,
+    "validation_f1": 0.8583718041418692,
+    "test_accuracy": 0.9376815958459823,
+    "test_precision": 0.7603444309330529,
+    "test_recall": 0.984468085106383,
+    "test_f1": 0.8580117566339682
   },
   "XGBoost": {
     "validation_accuracy": 0.9999837225012005,
@@ -21,23 +21,23 @@
     "test_f1": 1.0
   },
   "Hybrid": {
-    "validation_accuracy": 0.9999654755739685,
-    "validation_precision": 0.99996548580646,
-    "validation_recall": 0.9999654755739685,
-    "validation_f1": 0.9999654776329707,
+    "validation_accuracy": 0.999967144171376,
+    "validation_precision": 0.9999671497373304,
+    "validation_recall": 0.999967144171376,
+    "validation_f1": 0.9999671450867144,
     "test_accuracy": 1.0,
     "test_precision": 1.0,
     "test_recall": 1.0,
     "test_f1": 1.0
   },
   "Overall": {
-    "validation_accuracy": 0.9768127029600632,
-    "validation_precision": 0.9774524357457086,
-    "validation_recall": 0.9768127029600632,
-    "validation_f1": 0.974158643756515,
-    "test_accuracy": 0.976780147962464,
-    "test_precision": 0.9774282103938692,
-    "test_recall": 0.976780147962464,
-    "test_f1": 0.9741938854484719
+    "validation_accuracy": 0.9971270214618821,
+    "validation_precision": 0.9971371353918299,
+    "validation_recall": 0.9971270214618821,
+    "validation_f1": 0.9971150019473217,
+    "test_accuracy": 0.997029356469085,
+    "test_precision": 0.9970402282368751,
+    "test_recall": 0.997029356469085,
+    "test_f1": 0.9970165144530707
   }
 }

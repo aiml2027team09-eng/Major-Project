@@ -86,11 +86,17 @@ def run_pipeline():
         validation_binary_true=validation_binary_true,
     )
 
+    # Step 4b: Adaptive threshold comparison (new)
+    _run_adaptive_threshold_analysis(
+        normal_errors, validation_errors, test_errors,
+        validation_binary_true, test_binary_true,
+    )
+
     # Step 5: Anomaly detection on validation and test sets
     validation_anomaly_predictions = detect_anomalies(validation_errors, threshold)
     test_anomaly_predictions = detect_anomalies(test_errors, threshold)
 
-    # Step 7: Evaluate autoencoder
+    # Step 6: Evaluate autoencoder (with enhanced metrics)
     autoencoder_validation_metrics = evaluate_autoencoder(
         validation_binary_true, validation_anomaly_predictions, "validation"
     )
@@ -98,7 +104,10 @@ def run_pipeline():
         test_binary_true, test_anomaly_predictions, "test"
     )
 
-    # Step 8: XGBoost — create, train, save
+    # Step 6b: Enhanced binary metrics with FPR/FNR/ROC-AUC
+    _print_enhanced_ae_metrics(test_binary_true, test_errors, threshold)
+
+    # Step 7: XGBoost — create, train, save
     number_of_classes = len(label_encoder.classes_)
     print_class_mapping(label_encoder)
     xgb_model = create_xgboost_model(number_of_classes)
@@ -107,7 +116,7 @@ def run_pipeline():
     )
     save_xgboost_model(xgb_model)
 
-    # Step 9: Evaluate XGBoost
+    # Step 8: Evaluate XGBoost
     _, xgboost_validation_metrics = evaluate_xgboost_split(
         xgb_model, X_validation_np, y_validation_np, label_encoder, "validation"
     )
@@ -116,7 +125,14 @@ def run_pipeline():
     )
     plot_confusion_matrix(y_test_np, test_xgb_predictions, label_encoder)
 
-    # Step 10: Hybrid pipeline evaluation
+    # Step 8b: Enhanced multi-class metrics (macro-F1, ROC-AUC OvR)
+    _print_enhanced_xgb_metrics(
+        y_test_np, test_xgb_predictions,
+        xgb_model.predict_proba(X_test_np),
+        list(label_encoder.classes_),
+    )
+
+    # Step 9: Hybrid pipeline evaluation
     hybrid_metrics = evaluate_hybrid_pipeline(
         xgb_model,
         X_test_np,
@@ -125,7 +141,7 @@ def run_pipeline():
         label_encoder,
     )
 
-    # Step 11: Save results and print summary
+    # Step 10: Save results and print summary
     save_results(
         threshold,
         autoencoder_validation_metrics,
@@ -135,6 +151,148 @@ def run_pipeline():
         hybrid_metrics,
     )
     print_final_summary(autoencoder_test_metrics, xgboost_test_metrics)
+
+    # Step 11: Reconstruction error analysis plots
+    _run_reconstruction_analysis(
+        autoencoder, X_normal_np, X_test_np, y_test_np,
+        label_encoder, threshold,
+    )
+
+    # Step 12: Data leakage audit
+    _run_leakage_audit()
+
+    print("\n")
+    print("=" * 70)
+    print("TRAINING COMPLETE")
+    print("Run full evaluation with:")
+    print("  python run_full_evaluation.py --dataset cicids2018")
+    print("  python run_full_evaluation.py --dataset cicids2018 --skip-slow")
+    print("=" * 70)
+
+
+# ─────────────────────────────────────────────
+#  Enhancement helpers (non-breaking additions)
+# ─────────────────────────────────────────────
+
+def _run_adaptive_threshold_analysis(
+    normal_errors, val_errors, test_errors,
+    val_binary, test_binary,
+):
+    """Run adaptive threshold comparison and print results."""
+    try:
+        from models.adaptive_threshold import compare_all_thresholds
+        import hybrid_ids.config as config
+        import os
+
+        print("\n" + "=" * 70)
+        print("ADAPTIVE THRESHOLD ANALYSIS")
+        print("=" * 70)
+
+        compare_all_thresholds(
+            normal_errors, test_errors, test_binary,
+            output_dir=os.path.join(config.MODEL_FOLDER, "threshold_analysis"),
+        )
+    except Exception as e:
+        print(f"  [Adaptive threshold] Skipped: {e}")
+
+
+def _print_enhanced_ae_metrics(y_binary, errors, threshold):
+    """Print FPR, FNR, and ROC-AUC for the autoencoder."""
+    try:
+        from evaluation.metrics import compute_binary_metrics, compute_roc_auc
+        import numpy as np
+
+        preds = (errors > threshold).astype(int)
+        m     = compute_binary_metrics(y_binary, preds)
+        roc   = compute_roc_auc(y_binary, errors)
+
+        print("\n=== Autoencoder Enhanced Metrics (Test Set) ===")
+        print(f"  Accuracy : {m['accuracy']:.4f}")
+        print(f"  Precision: {m['precision']:.4f}")
+        print(f"  Recall   : {m['recall']:.4f}")
+        print(f"  F1       : {m['f1']:.4f}")
+        print(f"  FPR      : {m['fpr']:.4f}  (false alarm rate)")
+        print(f"  FNR      : {m['fnr']:.4f}  (missed attack rate)")
+        print(f"  ROC-AUC  : {roc['roc_auc']:.4f}")
+        print(f"  PR-AUC   : {roc['pr_auc']:.4f}")
+        print(f"  TP={m['tp']}  FP={m['fp']}  TN={m['tn']}  FN={m['fn']}")
+    except Exception as e:
+        print(f"  [Enhanced AE metrics] Skipped: {e}")
+
+
+def _print_enhanced_xgb_metrics(y_true, y_pred, y_prob, class_names):
+    """Print macro-F1 and ROC-AUC OvR for XGBoost."""
+    try:
+        from evaluation.metrics import compute_multiclass_metrics
+
+        m = compute_multiclass_metrics(y_true, y_pred, class_names, y_prob)
+
+        print("\n=== XGBoost Enhanced Metrics (Test Set) ===")
+        print(f"  Accuracy            : {m['accuracy']:.4f}")
+        print(f"  F1 (weighted)       : {m['f1_weighted']:.4f}")
+        print(f"  F1 (macro)          : {m['f1_macro']:.4f}")
+        print(f"  Precision (weighted): {m['precision_weighted']:.4f}")
+        print(f"  Recall (weighted)   : {m['recall_weighted']:.4f}")
+        if m.get("roc_auc_ovr") is not None:
+            print(f"  ROC-AUC (OvR macro) : {m['roc_auc_ovr']:.4f}")
+    except Exception as e:
+        print(f"  [Enhanced XGB metrics] Skipped: {e}")
+
+
+def _run_reconstruction_analysis(autoencoder, X_normal, X_test, y_test,
+                                  label_encoder, threshold):
+    """Generate reconstruction error plots."""
+    try:
+        from evaluation.reconstruction_analysis import (
+            compute_errors,
+            plot_error_distributions,
+            plot_roc_curve,
+            plot_pr_curve,
+        )
+        from hybrid_ids.binary_labels import convert_to_binary_labels
+        import hybrid_ids.config as config
+        import os
+
+        out_dir = os.path.join(config.MODEL_FOLDER, "reconstruction")
+        os.makedirs(out_dir, exist_ok=True)
+
+        normal_errors = compute_errors(autoencoder, X_normal)
+        test_errors   = compute_errors(autoencoder, X_test)
+        y_binary      = convert_to_binary_labels(y_test, label_encoder)
+
+        plot_error_distributions(
+            {"Benign (normal train)": normal_errors, "Test (all)": test_errors},
+            threshold,
+            os.path.join(out_dir, "error_distribution.png"),
+        )
+        plot_roc_curve(
+            y_binary, test_errors, threshold,
+            os.path.join(out_dir, "roc_curve.png"),
+        )
+        plot_pr_curve(
+            y_binary, test_errors,
+            os.path.join(out_dir, "pr_curve.png"),
+        )
+
+        print(f"  Reconstruction plots saved → {out_dir}")
+    except Exception as e:
+        print(f"  [Reconstruction analysis] Skipped: {e}")
+
+
+def _run_leakage_audit():
+    """Run data leakage audit after training."""
+    try:
+        from evaluation.leakage_audit import run_full_leakage_audit
+        import hybrid_ids.config as config
+        import os
+
+        run_full_leakage_audit(
+            data_folder=config.DATA_FOLDER,
+            model_folder=config.MODEL_FOLDER,
+            output_path=os.path.join(config.MODEL_FOLDER, "leakage_audit.json"),
+        )
+    except Exception as e:
+        print(f"  [Leakage audit] Skipped: {e}")
 
 
 if __name__ == "__main__":

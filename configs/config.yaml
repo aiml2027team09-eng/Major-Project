@@ -1,0 +1,210 @@
+# ================================================================
+# HYBRID IDS — CENTRAL REPRODUCIBILITY CONFIGURATION
+# ================================================================
+#
+# This file controls all experiment parameters.
+# Every experiment should use this config for reproducibility.
+#
+# Reference: Master Project Prompt, Section 25 (Reproducibility)
+# ================================================================
+
+project:
+  name: "Adaptive Explainable Hybrid NIDS"
+  version: "2.0.0"
+  title: >
+    An Adaptive and Explainable Hybrid Network Intrusion Detection
+    System Using Autoencoder-Based Anomaly Detection and XGBoost
+    Classification for Real-Time Network Monitoring
+
+# ─── Reproducibility ────────────────────────────────────────────
+reproducibility:
+  random_seed: 42
+  multiple_seeds: [42, 123, 456, 789, 1024]  # for statistical validation
+  n_runs_latency: 5   # repetitions for timing measurements
+
+# ─── Dataset ────────────────────────────────────────────────────
+dataset:
+  primary: "cicids2018"
+  secondary: "nsl_kdd"
+  cicids2018_path: "D:/Users/anshp/Final year project/Major-Project/cic.csv"
+  processed_dir_cicids2018: "processed_CICIDS2018"
+  processed_dir_nsl_kdd: "processed_NSL_KDD"
+  chunk_size: 100000
+  max_rows: null  # null = full dataset; set to e.g. 500000 for limited RAM
+
+# ─── Preprocessing ─────────────────────────────────────────────
+preprocessing:
+  train_fraction: 0.70
+  validation_fraction: 0.15
+  test_fraction: 0.15
+  smote_max_samples_per_class: 80000
+  remove_constant_features: true
+  remove_highly_correlated: true
+  correlation_threshold: 0.99
+  invalid_labels: ["", "nan", "NaN", "None", "null"]
+
+# ─── Autoencoder ────────────────────────────────────────────────
+autoencoder:
+  architecture:
+    encoder_dims: [128, 64, 32, 16]   # bottleneck at 16
+    decoder_dims: [32, 64, 128]
+    activation: "relu"
+    output_activation: "linear"
+    dropout_rate: 0.2
+    use_batch_norm: false
+    l2_regularization: 0.0
+  training:
+    epochs: 100
+    batch_size: 512
+    learning_rate: 0.0005
+    optimizer: "adam"
+    loss: "mse"
+    early_stopping_patience: 10
+    reduce_lr_patience: 5
+    reduce_lr_factor: 0.5
+    min_lr: 0.000001
+    validation_split: 0.15
+  architecture_variants:
+    - name: "AE-64-32"
+      encoder_dims: [64, 32]
+      decoder_dims: [64]
+    - name: "AE-128-64-32"
+      encoder_dims: [128, 64, 32]
+      decoder_dims: [64, 128]
+
+# ─── Anomaly Thresholding ───────────────────────────────────────
+thresholding:
+  # Fixed threshold
+  fixed_percentile: 99.0
+  # Statistical: T = mu + k * sigma
+  statistical_k: 3.0
+  k_candidates: [2.0, 2.5, 3.0, 3.5, 4.0]
+  # Percentile adaptive
+  percentile_candidates: [95.0, 97.5, 99.0, 99.5]
+  default_percentile: 97.5
+  # Sliding window (online)
+  sliding_window_size: 500
+  # Validation tuning
+  search_min_percentile: 90.0
+  search_max_percentile: 99.9
+  search_steps: 200
+  min_validation_precision: 0.90
+  threshold_metric: "f1"  # f1 | accuracy | balanced
+
+# ─── XGBoost ────────────────────────────────────────────────────
+xgboost:
+  n_estimators: 500
+  max_depth: 6
+  learning_rate: 0.03
+  subsample: 0.9
+  colsample_bytree: 0.8
+  min_child_weight: 1
+  objective: "multi:softprob"
+  eval_metric: "mlogloss"
+  early_stopping_rounds: 25
+  class_weight: "balanced"
+
+# ─── Evaluation ─────────────────────────────────────────────────
+evaluation:
+  experiments:
+    - "experiment_a_conventional_split"    # stratified 70/15/15
+    - "experiment_b_temporal_split"        # time-ordered splits
+    - "experiment_c_unseen_attack"         # leave-one-class-out
+    - "ablation_study"                     # Models A→G
+    - "baseline_comparison"                # LR, RF, SVM, MLP, XGB, AE, Hybrid
+    - "drift_detection"                    # KS, PSI, JSD
+    - "statistical_validation"             # multi-seed + CI
+
+  unseen_attack:
+    min_samples_per_class: 10
+    # null = run for all attack classes
+    held_out_classes: null
+
+  drift_detection:
+    ks_alpha: 0.05
+    psi_minor_threshold: 0.10
+    psi_major_threshold: 0.25
+    jsd_minor_threshold: 0.05
+    jsd_major_threshold: 0.15
+
+  metrics:
+    primary:
+      - "f1_weighted"
+      - "f1_macro"
+      - "fpr"
+      - "fnr"
+      - "roc_auc"
+    secondary:
+      - "accuracy"
+      - "precision_weighted"
+      - "recall_weighted"
+      - "pr_auc"
+      - "latency_ms_per_sample"
+      - "throughput_fps"
+
+# ─── SHAP ───────────────────────────────────────────────────────
+shap:
+  enabled: true
+  sample_size: 2000          # max test samples for SHAP computation
+  max_background: 500        # background samples for TreeExplainer
+  top_k_features: 5          # features per local explanation
+  stability_n_samples: 50    # samples for stability test
+  stability_noise_std: 0.01
+
+# ─── Severity Scoring ───────────────────────────────────────────
+severity:
+  critical:
+    confidence_min: 0.90
+    re_multiplier: 3.0
+    classes: ["DDoS", "DoS", "Bot"]
+  high:
+    confidence_min: 0.75
+    re_multiplier: 2.0
+    classes: ["Brute Force", "Infiltration", "Web Attack"]
+  medium:
+    confidence_min: 0.50
+    re_multiplier: 1.5
+  low:
+    confidence_min: 0.0
+    re_multiplier: 1.0
+
+# ─── Real-Time Monitoring ───────────────────────────────────────
+live_monitoring:
+  flow_timeout_s: 120
+  inactive_timeout_s: 15
+  batch_size: 1
+  alert_log: "live_alerts.log"
+  max_flows_in_memory: 10000
+  enable_shap_on_alerts: true
+  adaptive_threshold_window: 500
+
+# ─── Performance Targets (for paper validation) ─────────────────
+performance_targets:
+  cicids2018:
+    autoencoder:
+      test_f1: 0.90
+      test_precision: 0.90
+      test_recall: 0.90
+    xgboost:
+      test_f1: 0.95
+    hybrid:
+      test_f1: 0.95
+      fpr: 0.05
+  nsl_kdd:
+    autoencoder:
+      test_f1: 0.85
+    xgboost:
+      test_f1: 0.90
+
+# ─── Output Directories ─────────────────────────────────────────
+output:
+  models_dir: "trained_models"
+  results_dir: "result_images"
+  evaluation_dir: "result_images/evaluation"
+  ablation_dir: "result_images/ablation"
+  baseline_dir: "result_images/baselines"
+  shap_dir: "result_images/shap"
+  drift_dir: "result_images/drift"
+  temporal_dir: "result_images/temporal"
+  unseen_dir: "result_images/unseen"
+  statistical_dir: "result_images/statistical"

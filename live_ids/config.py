@@ -50,7 +50,7 @@ PROCESSED_LIVE_FOLDER = processed_live_folder(_profile)
 
 INTERFACE = None
 
-FLOW_IDLE_TIMEOUT = 60
+FLOW_IDLE_TIMEOUT = 5
 
 FLOW_FLUSH_INTERVAL = 5
 

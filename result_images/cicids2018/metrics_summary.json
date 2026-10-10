@@ -1,14 +1,14 @@
 {
   "dataset": "cicids2018",
   "Autoencoder": {
-    "validation_accuracy": 0.9267431166526952,
-    "validation_precision": 0.7230631961110086,
-    "validation_recall": 1.0,
-    "validation_f1": 0.8392764673321073,
-    "test_accuracy": 0.9270361116310868,
-    "test_precision": 0.7238702522872194,
-    "test_recall": 0.9999574468085106,
-    "test_f1": 0.8398048710755321
+    "validation_accuracy": 0.9378280933351781,
+    "validation_precision": 0.7605795768169273,
+    "validation_recall": 0.985021913961108,
+    "validation_f1": 0.8583718041418692,
+    "test_accuracy": 0.9376815958459823,
+    "test_precision": 0.7603444309330529,
+    "test_recall": 0.984468085106383,
+    "test_f1": 0.8580117566339682
   },
   "XGBoost": {
     "validation_accuracy": 0.9999837225012005,
@@ -21,23 +21,23 @@
     "test_f1": 1.0
   },
   "Hybrid": {
-    "validation_accuracy": 0.9999692326626054,
-    "validation_precision": 0.999969237874758,
-    "validation_recall": 0.9999692326626054,
-    "validation_f1": 0.9999692335286807,
+    "validation_accuracy": 0.999967144171376,
+    "validation_precision": 0.9999671497373304,
+    "validation_recall": 0.999967144171376,
+    "validation_f1": 0.9999671450867144,
     "test_accuracy": 1.0,
     "test_precision": 1.0,
     "test_recall": 1.0,
     "test_f1": 1.0
   },
   "Overall": {
-    "validation_accuracy": 0.9999918612506002,
-    "validation_precision": 0.9999918626293482,
-    "validation_recall": 0.9999918612506002,
-    "validation_f1": 0.9999918614796993,
-    "test_accuracy": 0.9999918612506002,
-    "test_precision": 0.9999918613325036,
-    "test_recall": 0.9999918612506002,
-    "test_f1": 0.9999918611554526
+    "validation_accuracy": 0.9971270214618821,
+    "validation_precision": 0.9971371353918299,
+    "validation_recall": 0.9971270214618821,
+    "validation_f1": 0.9971150019473217,
+    "test_accuracy": 0.997029356469085,
+    "test_precision": 0.9970402282368751,
+    "test_recall": 0.997029356469085,
+    "test_f1": 0.9970165144530707
   }
 }

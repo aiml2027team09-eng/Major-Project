@@ -1,0 +1,12 @@
+{
+    "held_out_class": "probe",
+    "n_held_out_samples": 2930,
+    "n_detected_by_ae": 0,
+    "detection_rate": 0.0,
+    "false_negative_rate": 1.0,
+    "mean_re_held_out": 0.25598064064979553,
+    "mean_re_benign": 0.025462530553340912,
+    "std_re_held_out": 0.21402430534362793,
+    "threshold": 4.145444583147764,
+    "xgb_on_detected": {}
+}
