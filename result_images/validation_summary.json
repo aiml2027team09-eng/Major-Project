@@ -1,54 +1,54 @@
 {
   "nsl_kdd": {
     "dataset": "nsl_kdd",
-    "validated_at": "2026-10-09T21:50:17",
-    "threshold": 0.08613299521070056,
+    "validated_at": "2026-10-14T11:36:27",
+    "threshold": 0.020587,
     "test_samples": 22544,
     "benign_samples": 9711,
     "attack_samples": 12833,
     "full_test_set": {
       "autoencoder": {
-        "accuracy": 0.8406227821149752,
-        "precision": 0.9676113360323887,
-        "recall": 0.744954414400374,
-        "f1": 0.841808655835865
+        "accuracy": 0.8624467707594038,
+        "precision": 0.8928629097367996,
+        "recall": 0.8617626431855373,
+        "f1": 0.8770371545263492
       },
-      "hybrid_accuracy": 0.7237845990063875
+      "hybrid_accuracy": 0.7556334279630944
     },
     "benign_only_simulation": {
       "description": "Simulates live network with no attacks \u2014 lower FPR is better",
       "autoencoder": {
-        "accuracy": 0.9670476778910514,
+        "accuracy": 0.8633508392544537,
         "precision": 0.0,
         "recall": 0.0,
         "f1": 0.0
       },
-      "false_positive_rate": 0.03295232210894861,
-      "false_alarms": 320,
+      "false_positive_rate": 0.13664916074554628,
+      "false_alarms": 1327,
       "total_benign": 9711
     },
     "attack_only_validation": {
       "description": "Proves model detects known attacks offline \u2014 higher detection rate is better",
       "autoencoder": {
-        "accuracy": 0.744954414400374,
+        "accuracy": 0.8617626431855373,
         "precision": 1.0,
-        "recall": 0.744954414400374,
-        "f1": 0.8538382530254991
+        "recall": 0.8617626431855373,
+        "f1": 0.9257492047547297
       },
-      "attack_detection_rate": 0.744954414400374,
-      "attacks_detected": 9560,
+      "attack_detection_rate": 0.8617626431855373,
+      "attacks_detected": 11059,
       "total_attacks": 12833
     },
     "live_captured_normal": {
       "description": "Your captured live normal traffic \u2014 should have ~0% false alarms",
       "samples": 561,
-      "false_alarms": 381,
-      "false_positive_rate": 0.679144385026738
+      "false_alarms": 561,
+      "false_positive_rate": 1.0
     }
   },
   "cicids2018": {
     "dataset": "cicids2018",
-    "validated_at": "2026-10-09T21:50:20",
+    "validated_at": "2026-10-14T11:36:31",
     "threshold": 0.09621983183089214,
     "test_samples": 122869,
     "benign_samples": 99369,

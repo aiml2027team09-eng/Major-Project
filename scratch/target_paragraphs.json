@@ -1,0 +1,447 @@
+[
+  {
+    "index": 84,
+    "type": "CHAPTER",
+    "text": "CHAPTER 1\nINTRODUCTION"
+  },
+  {
+    "index": 85,
+    "type": "SECTION",
+    "text": "1.1 Background"
+  },
+  {
+    "index": 88,
+    "type": "SECTION",
+    "text": "1.2 Problem Statement"
+  },
+  {
+    "index": 91,
+    "type": "SECTION",
+    "text": "1.3 Motivation / Need for the Project"
+  },
+  {
+    "index": 101,
+    "type": "SECTION",
+    "text": "1.4 Objectives"
+  },
+  {
+    "index": 108,
+    "type": "SECTION",
+    "text": "1.5 Scope of the Project"
+  },
+  {
+    "index": 114,
+    "type": "SECTION",
+    "text": "1.6 Significance / Expected Contribution"
+  },
+  {
+    "index": 121,
+    "type": "SECTION",
+    "text": "1.7 Organization of the Report"
+  },
+  {
+    "index": 131,
+    "type": "CHAPTER",
+    "text": "CHAPTER 2\nLITERATURE SURVEY"
+  },
+  {
+    "index": 132,
+    "type": "SECTION",
+    "text": "2.1 Introduction"
+  },
+  {
+    "index": 136,
+    "type": "SECTION",
+    "text": "2.2 Review of Existing Work"
+  },
+  {
+    "index": 138,
+    "type": "TABLE",
+    "text": "Table 2.1: Comparison of Existing NIDS Approaches, Methodologies, and Research Gaps"
+  },
+  {
+    "index": 139,
+    "type": "SECTION",
+    "text": "2.3 Comparative Analysis"
+  },
+  {
+    "index": 144,
+    "type": "SECTION",
+    "text": "2.4 Research / Design Gap"
+  },
+  {
+    "index": 150,
+    "type": "SECTION",
+    "text": "2.5 Summary"
+  },
+  {
+    "index": 153,
+    "type": "CHAPTER",
+    "text": "CHAPTER 3\nPROPOSED SYSTEM AND SCOPE"
+  },
+  {
+    "index": 154,
+    "type": "SECTION",
+    "text": "3.1 Problem Formulation"
+  },
+  {
+    "index": 160,
+    "type": "SECTION",
+    "text": "3.2 Proposed Solution"
+  },
+  {
+    "index": 167,
+    "type": "SECTION",
+    "text": "3.3 Requirements"
+  },
+  {
+    "index": 168,
+    "type": "SUBSECTION",
+    "text": "Functional & Non-Functional Requirements"
+  },
+  {
+    "index": 184,
+    "type": "SUBSECTION",
+    "text": "Hardware & Software Requirements"
+  },
+  {
+    "index": 198,
+    "type": "SECTION",
+    "text": "3.4 System Architecture / Block Diagram"
+  },
+  {
+    "index": 199,
+    "type": "FIGURE",
+    "text": "Figure 3.1: System Architecture of the Two-Stage Hybrid NIDS"
+  },
+  {
+    "index": 207,
+    "type": "SECTION",
+    "text": "3.5 Functional Components & Scope Constraints"
+  },
+  {
+    "index": 210,
+    "type": "CHAPTER",
+    "text": "CHAPTER 4\nMETHODOLOGY"
+  },
+  {
+    "index": 211,
+    "type": "SECTION",
+    "text": "4.1 Objective and Method / Approach"
+  },
+  {
+    "index": 214,
+    "type": "SECTION",
+    "text": "4.2 Measurement / Evaluation Parameters"
+  },
+  {
+    "index": 215,
+    "type": "TABLE",
+    "text": "Table 4.1: Measurement and Evaluation Parameters for Model Assessment"
+  },
+  {
+    "index": 216,
+    "type": "SECTION",
+    "text": "4.3 Model Architecture and Structural Diagrams"
+  },
+  {
+    "index": 217,
+    "type": "SUBSECTION",
+    "text": "Autoencoder Latent Topology & Manifold Projection"
+  },
+  {
+    "index": 220,
+    "type": "TABLE",
+    "text": "Table 4.2: Autoencoder Bottleneck Layer Configuration and Dimensionality"
+  },
+  {
+    "index": 221,
+    "type": "SUBSECTION",
+    "text": "Sequence Diagram of Packet Ingestion and Prediction"
+  },
+  {
+    "index": 222,
+    "type": "FIGURE",
+    "text": "Figure 4.1: Sequence Diagram of Packet Ingestion and Prediction Workflow"
+  },
+  {
+    "index": 227,
+    "type": "SUBSECTION",
+    "text": "Activity Diagram of Tiered Detection and Alert Routing"
+  },
+  {
+    "index": 228,
+    "type": "FIGURE",
+    "text": "Figure 4.2: Activity Diagram of Tiered Detection and Alert Routing"
+  },
+  {
+    "index": 230,
+    "type": "SUBSECTION",
+    "text": "Data Flow Diagram (DFD Level-1) for Flow Processing"
+  },
+  {
+    "index": 231,
+    "type": "FIGURE",
+    "text": "Figure 4.3: Data Flow Diagram (DFD Level-1) for Flow Processing and Anomaly Gating"
+  },
+  {
+    "index": 239,
+    "type": "SUBSECTION",
+    "text": "Class Diagram and Use Case Diagram"
+  },
+  {
+    "index": 241,
+    "type": "FIGURE",
+    "text": "Figure 4.4: Class Diagram of Object-Oriented Framework Architecture"
+  },
+  {
+    "index": 244,
+    "type": "FIGURE",
+    "text": "Figure 4.5: Use Case Diagram of Network Intrusion Detection Workflow"
+  },
+  {
+    "index": 246,
+    "type": "SECTION",
+    "text": "4.4 Error Sources, Mitigation, and Data Processing"
+  },
+  {
+    "index": 253,
+    "type": "CHAPTER",
+    "text": "CHAPTER 5\nIMPLEMENTATION & EXPERIMENTAL WORK"
+  },
+  {
+    "index": 254,
+    "type": "SECTION",
+    "text": "5.1 Implementation Environment"
+  },
+  {
+    "index": 256,
+    "type": "SECTION",
+    "text": "5.2 Module-wise Implementation"
+  },
+  {
+    "index": 257,
+    "type": "SECTION",
+    "text": "5.2.1 Data Preparation & Cryptographic Hygiene"
+  },
+  {
+    "index": 259,
+    "type": "TABLE",
+    "text": "Table 5.1: Cryptographically Audited Dataset Splits Enforcing Zero Leakage (Train \u2229 Test = \u2205)"
+  },
+  {
+    "index": 264,
+    "type": "SECTION",
+    "text": "5.2.2 Feature Preprocessing & Locked Scaling"
+  },
+  {
+    "index": 266,
+    "type": "SECTION",
+    "text": "5.2.3 Autoencoder Model Training & Manifold Construction"
+  },
+  {
+    "index": 271,
+    "type": "SECTION",
+    "text": "5.2.4 Validation Youden's J Threshold Optimization"
+  },
+  {
+    "index": 275,
+    "type": "SECTION",
+    "text": "5.2.5 XGBoost Multi-Class Classification & Confidence Gating"
+  },
+  {
+    "index": 279,
+    "type": "SECTION",
+    "text": "5.2.6 Dynamic Concept Drift Monitoring & Alert-Gated TreeSHAP"
+  },
+  {
+    "index": 283,
+    "type": "SECTION",
+    "text": "5.3 Experimental Setup"
+  },
+  {
+    "index": 284,
+    "type": "TABLE",
+    "text": "Table 5.2: This table summarizes the main parameters and hyperparameter configurations used to evaluate the proposed hybrid IDS on CICIDS2018 and NSL-KDD. It covers the input feature dimensions, Autoencoder bottleneck, training settings, anomaly thresholds, XGBoost configuration, confidence floor, and sliding buffer size. These parameters define the anomaly-screening process and support consistent evaluation across both datasets."
+  },
+  {
+    "index": 285,
+    "type": "TABLE",
+    "text": "Table 5.2: Experimental Setup Parameters and Hyperparameter Configurations"
+  },
+  {
+    "index": 287,
+    "type": "TABLE",
+    "text": "Table 5.3: This table presents functional and performance tests used to assess the system pipeline. The test cases verify preprocessing, benign-flow screening, anomaly detection, multi-class classification, unknown-attack quarantine, TreeSHAP explanations, and streaming throughput. The listed expected outcomes and pass statuses summarize the reported results for each test."
+  },
+  {
+    "index": 288,
+    "type": "TABLE",
+    "text": "Table 5.3: System Test Cases, Inputs, Expected Outcomes, and Execution Status"
+  },
+  {
+    "index": 289,
+    "type": "SECTION",
+    "text": "5.4 Prototype & Testing"
+  },
+  {
+    "index": 291,
+    "type": "FIGURE",
+    "text": "Figure 5.1: Real-Time Network Flow Telemetry and Live Sniffing Monitor"
+  },
+  {
+    "index": 293,
+    "type": "FIGURE",
+    "text": "Figure 5.2: Threat Diagnosis, Alert Gating, and Local TreeSHAP Explanation"
+  },
+  {
+    "index": 299,
+    "type": "CHAPTER",
+    "text": "CHAPTER 6\nRESULTS, ANALYSIS AND DISCUSSION"
+  },
+  {
+    "index": 300,
+    "type": "SECTION",
+    "text": "6.1 Quantitative Classification Results"
+  },
+  {
+    "index": 302,
+    "type": "TABLE",
+    "text": "Table 6.1: Overall Classification Performance on Held-Out Test Partitions"
+  },
+  {
+    "index": 305,
+    "type": "TABLE",
+    "text": "Table 6.2: Multi-Class Attack Detection Breakdown on CICIDS2018 (N = 100,670)"
+  },
+  {
+    "index": 307,
+    "type": "TABLE",
+    "text": "Table 6.2: Illustrates the granular category-level breakdown for the CICIDS2018 test split. The system demonstrates near-flawless performance on volumetric and automated authentication vectors. For SSH-Bruteforce attacks, the pipeline identifies 14,067 out of 14,106 attack instances, achieving 99.72% recall. This heightened sensitivity stems from the distinctive temporal signatures of automated password guessing, including rapid packet inter-arrival times (IATs), uniform packet lengths, and abnormal TCP flag combinations that clash sharply with the learned manifold of legitimate communication. Similarly, all 8 test flows of FTP-BruteForce are detected (100.00% recall), confirming that extreme class rarity in training data does not preclude reliable isolation when non-linear autoencoder gating is employed. Concurrently, 77,877 legitimate benign flows are cleared at Stage-1, yielding an exceptional Benign class precision of 99.95%."
+  },
+  {
+    "index": 308,
+    "type": "TABLE",
+    "text": "Table 6.3: Multi-Class Attack Detection Breakdown on NSL-KDD (N = 22,169)"
+  },
+  {
+    "index": 310,
+    "type": "SECTION",
+    "text": "6.2 Confusion Matrix & Threshold Analysis"
+  },
+  {
+    "index": 312,
+    "type": "FIGURE",
+    "text": "Figure 6.1: Row-Normalized Confusion Matrices for Hybrid AE\u2013XGBoost Model."
+  },
+  {
+    "index": 314,
+    "type": "FIGURE",
+    "text": "Figure 6.2: Row-Normalized Confusion Matrices for Standalone Autoencoder."
+  },
+  {
+    "index": 317,
+    "type": "TABLE",
+    "text": "Table 6.4: Reconstruction Threshold Strategy Comparison on CICIDS2018"
+  },
+  {
+    "index": 321,
+    "type": "FIGURE",
+    "text": "Figure 6.3: Reconstruction Threshold Sensitivity and Pareto Optimization Curves."
+  },
+  {
+    "index": 323,
+    "type": "SECTION",
+    "text": "6.3 Zero-Day Generalization & Drift Tracking"
+  },
+  {
+    "index": 325,
+    "type": "TABLE",
+    "text": "Table 6.5: Leave-One-Attack-Out (LOAO) Unseen Attack Detection Performance"
+  },
+  {
+    "index": 327,
+    "type": "FIGURE",
+    "text": "Figure 6.4: Generalization Audits: Unseen Attack Detection and Chronological Split Decay."
+  },
+  {
+    "index": 330,
+    "type": "TABLE",
+    "text": "Table 6.6: Statistical Concept Drift Tracking Across Sequential Windows in CICIDS2018"
+  },
+  {
+    "index": 333,
+    "type": "FIGURE",
+    "text": "Figure 6.5: Statistical Concept Drift (DKS, PSI, JSD) Monitored Across Windows"
+  },
+  {
+    "index": 336,
+    "type": "FIGURE",
+    "text": "Figure 6.6: TreeSHAP Global Feature Importance Ranking (Summary Plot)"
+  },
+  {
+    "index": 338,
+    "type": "SECTION",
+    "text": "6.4 Latency, Memory Footprint & Baseline Comparisons"
+  },
+  {
+    "index": 345,
+    "type": "TABLE",
+    "text": "Table 6.7: Computational Benchmark: Execution Latency, Throughput, and Peak Memory (RSS)"
+  },
+  {
+    "index": 347,
+    "type": "FIGURE",
+    "text": "Figure 6.7: End-to-End Pipeline Execution Latency Breakdown on Multi-Core CPU"
+  },
+  {
+    "index": 351,
+    "type": "TABLE",
+    "text": "Table 6.8: Benchmark Comparison Against Baseline Supervised Classifiers"
+  },
+  {
+    "index": 355,
+    "type": "CHAPTER",
+    "text": "CHAPTER 7\nCONCLUSION AND FUTURE SCOPE"
+  },
+  {
+    "index": 356,
+    "type": "SECTION",
+    "text": "7.1 Summary of Work"
+  },
+  {
+    "index": 358,
+    "type": "SECTION",
+    "text": "7.2 Conclusions"
+  },
+  {
+    "index": 362,
+    "type": "SECTION",
+    "text": "7.3 Contributions & Utility"
+  },
+  {
+    "index": 364,
+    "type": "SECTION",
+    "text": "7.4 Limitations & Scope for Future Work"
+  },
+  {
+    "index": 368,
+    "type": "BACKMATTER",
+    "text": "REFERENCES"
+  },
+  {
+    "index": 395,
+    "type": "BACKMATTER",
+    "text": "APPENDICES"
+  },
+  {
+    "index": 396,
+    "type": "BACKMATTER",
+    "text": "Appendix A: Mathematical Derivations and Objective Functions"
+  },
+  {
+    "index": 400,
+    "type": "BACKMATTER",
+    "text": "Appendix B: Scapy Live Packet Sniffing & Flow Extraction Configuration"
+  }
+]

@@ -1,0 +1,316 @@
+﻿{
+    "Figures":  [
+                    {
+                        "Number":  "Figure 3.1",
+                        "Title":  "\u0007",
+                        "Page":  7
+                    },
+                    {
+                        "Number":  "Figure 4.1",
+                        "Title":  "\u0007",
+                        "Page":  7
+                    },
+                    {
+                        "Number":  "Figure 4.2",
+                        "Title":  "\u0007",
+                        "Page":  7
+                    },
+                    {
+                        "Number":  "Figure 4.3",
+                        "Title":  "\u0007",
+                        "Page":  7
+                    },
+                    {
+                        "Number":  "Figure 4.4",
+                        "Title":  "\u0007",
+                        "Page":  7
+                    },
+                    {
+                        "Number":  "Figure 4.5",
+                        "Title":  "\u0007",
+                        "Page":  7
+                    },
+                    {
+                        "Number":  "Figure 5.1",
+                        "Title":  "\u0007",
+                        "Page":  7
+                    },
+                    {
+                        "Number":  "Figure 5.2",
+                        "Title":  "\u0007",
+                        "Page":  7
+                    },
+                    {
+                        "Number":  "Figure 6.1",
+                        "Title":  "\u0007",
+                        "Page":  7
+                    },
+                    {
+                        "Number":  "Figure 6.2",
+                        "Title":  "\u0007",
+                        "Page":  7
+                    },
+                    {
+                        "Number":  "Figure 6.3",
+                        "Title":  "\u0007",
+                        "Page":  7
+                    },
+                    {
+                        "Number":  "Figure 6.4",
+                        "Title":  "\u0007",
+                        "Page":  7
+                    },
+                    {
+                        "Number":  "Figure 6.5",
+                        "Title":  "\u0007",
+                        "Page":  7
+                    },
+                    {
+                        "Number":  "Figure 6.6",
+                        "Title":  "\u0007",
+                        "Page":  7
+                    },
+                    {
+                        "Number":  "Figure 6.7",
+                        "Title":  "\u0007",
+                        "Page":  7
+                    },
+                    {
+                        "Number":  "Figure 4.4",
+                        "Title":  "Class Diagram of Object-Oriented Framework Architecture",
+                        "Page":  19
+                    },
+                    {
+                        "Number":  "Figure 4.5",
+                        "Title":  "Use Case Diagram of Network Intrusion Detection Workflow",
+                        "Page":  20
+                    },
+                    {
+                        "Number":  "Figure 5.1",
+                        "Title":  "Real-Time Network Flow Telemetry and Live Sniffing Monitor",
+                        "Page":  26
+                    },
+                    {
+                        "Number":  "Figure 5.2",
+                        "Title":  "Threat Diagnosis, Alert Gating, and Local TreeSHAP Explanation",
+                        "Page":  26
+                    },
+                    {
+                        "Number":  "Figure 6.1",
+                        "Title":  "Row-Normalized Confusion Matrices for Hybrid AE–XGBoost Model.",
+                        "Page":  29
+                    },
+                    {
+                        "Number":  "Figure 6.2",
+                        "Title":  "Row-Normalized Confusion Matrices for Standalone Autoencoder.",
+                        "Page":  30
+                    },
+                    {
+                        "Number":  "Figure 6.3",
+                        "Title":  "Reconstruction Threshold Sensitivity and Pareto Optimization Curves.",
+                        "Page":  31
+                    },
+                    {
+                        "Number":  "Figure 6.3",
+                        "Title":  "visualizes the sensitivity curve of reconstruction error versus classification performance. The intersection of the Precision and Recall curves highlights the Pareto boundary, confirming that τ* = 0.1973 maximizes detection sensitivity while insulating the downstream classifier from excessive false positive noise.",
+                        "Page":  31
+                    },
+                    {
+                        "Number":  "Figure 6.4",
+                        "Title":  "Generalization Audits: Unseen Attack Detection and Chronological Split Decay.",
+                        "Page":  32
+                    },
+                    {
+                        "Number":  "Figure 6.5",
+                        "Title":  "Statistical Concept Drift (DKS, PSI, JSD) Monitored Across Windows",
+                        "Page":  33
+                    },
+                    {
+                        "Number":  "Figure 6.6",
+                        "Title":  "TreeSHAP Global Feature Importance Ranking (Summary Plot)",
+                        "Page":  34
+                    },
+                    {
+                        "Number":  "Figure 6.6",
+                        "Title":  "illustrates the global feature importance ranking computed via TreeSHAP summary beeswarm analysis. The five most dominant predictive features are Destination Port, Flow Duration, Total Fwd Packets, Bwd Packet Length Mean, and Flow IAT Mean. High destination port values combined with ultra-low packet inter-arrival times correlate strongly with port scanning sweeps, whereas immense packet volume and sustained flow durations characterize volumetric denial-of-service floods. By surfacing these exact feature attributions, the TreeSHAP module transforms complex non-linear ensemble decisions into transparent, actionable evidence for SOC analysts.",
+                        "Page":  34
+                    },
+                    {
+                        "Number":  "Figure 6.7",
+                        "Title":  "End-to-End Pipeline Execution Latency Breakdown on Multi-Core CPU",
+                        "Page":  35
+                    }
+                ],
+    "Tables":  [
+                   {
+                       "Number":  "Table 2.1",
+                       "Title":  "\u0007",
+                       "Page":  8
+                   },
+                   {
+                       "Number":  "Table 4.1",
+                       "Title":  "\u0007",
+                       "Page":  8
+                   },
+                   {
+                       "Number":  "Table 4.2",
+                       "Title":  "\u0007",
+                       "Page":  8
+                   },
+                   {
+                       "Number":  "Table 5.1",
+                       "Title":  "\u0007",
+                       "Page":  8
+                   },
+                   {
+                       "Number":  "Table 5.2",
+                       "Title":  "\u0007",
+                       "Page":  8
+                   },
+                   {
+                       "Number":  "Table 5.3",
+                       "Title":  "\u0007",
+                       "Page":  8
+                   },
+                   {
+                       "Number":  "Table 6.1",
+                       "Title":  "\u0007",
+                       "Page":  8
+                   },
+                   {
+                       "Number":  "Table 6.2",
+                       "Title":  "\u0007",
+                       "Page":  8
+                   },
+                   {
+                       "Number":  "Table 6.3",
+                       "Title":  "\u0007",
+                       "Page":  8
+                   },
+                   {
+                       "Number":  "Table 6.4",
+                       "Title":  "\u0007",
+                       "Page":  8
+                   },
+                   {
+                       "Number":  "Table 6.5",
+                       "Title":  "\u0007",
+                       "Page":  8
+                   },
+                   {
+                       "Number":  "Table 6.6",
+                       "Title":  "\u0007",
+                       "Page":  8
+                   },
+                   {
+                       "Number":  "Table 6.7",
+                       "Title":  "\u0007",
+                       "Page":  8
+                   },
+                   {
+                       "Number":  "Table 6.8",
+                       "Title":  "\u0007",
+                       "Page":  8
+                   },
+                   {
+                       "Number":  "Table 2.1",
+                       "Title":  "presents a structured, comprehensive synthesis of ten foundational studies in network intrusion detection, systematically detailing their problem formulations, technical methodologies, primary empirical findings, and identified research gaps.",
+                       "Page":  6
+                   },
+                   {
+                       "Number":  "Table 2.1",
+                       "Title":  "Comparison of Existing NIDS Approaches, Methodologies, and Research Gaps",
+                       "Page":  6
+                   },
+                   {
+                       "Number":  "Table 4.1",
+                       "Title":  "Measurement and Evaluation Parameters for Model Assessment",
+                       "Page":  14
+                   },
+                   {
+                       "Number":  "Table 4.2",
+                       "Title":  "Autoencoder Bottleneck Layer Configuration and Dimensionality",
+                       "Page":  15
+                   },
+                   {
+                       "Number":  "Table 5.1",
+                       "Title":  "Cryptographically Audited Dataset Splits Enforcing Zero Leakage (Train ∩ Test = ∅)",
+                       "Page":  21
+                   },
+                   {
+                       "Number":  "Table 5.2",
+                       "Title":  "This table summarizes the main parameters and hyperparameter configurations used to evaluate the proposed hybrid IDS on CICIDS2018 and NSL-KDD. It covers the input feature dimensions, Autoencoder bottleneck, training settings, anomaly thresholds, XGBoost configuration, confidence floor, and sliding buffer size. These parameters define the anomaly-screening process and support consistent evaluation across both datasets.",
+                       "Page":  24
+                   },
+                   {
+                       "Number":  "Table 5.2",
+                       "Title":  "Experimental Setup Parameters and Hyperparameter Configurations",
+                       "Page":  24
+                   },
+                   {
+                       "Number":  "Table 5.3",
+                       "Title":  "This table presents functional and performance tests used to assess the system pipeline. The test cases verify preprocessing, benign-flow screening, anomaly detection, multi-class classification, unknown-attack quarantine, TreeSHAP explanations, and streaming throughput. The listed expected outcomes and pass statuses summarize the reported results for each test.",
+                       "Page":  25
+                   },
+                   {
+                       "Number":  "Table 5.3",
+                       "Title":  "System Test Cases, Inputs, Expected Outcomes, and Execution Status",
+                       "Page":  25
+                   },
+                   {
+                       "Number":  "Table 6.1",
+                       "Title":  "Overall Classification Performance on Held-Out Test Partitions",
+                       "Page":  27
+                   },
+                   {
+                       "Number":  "Table 6.2",
+                       "Title":  "Multi-Class Attack Detection Breakdown on CICIDS2018 (N = 100,670)",
+                       "Page":  28
+                   },
+                   {
+                       "Number":  "Table 6.2",
+                       "Title":  "Illustrates the granular category-level breakdown for the CICIDS2018 test split. The system demonstrates near-flawless performance on volumetric and automated authentication vectors. For SSH-Bruteforce attacks, the pipeline identifies 14,067 out of 14,106 attack instances, achieving 99.72% recall. This heightened sensitivity stems from the distinctive temporal signatures of automated password guessing, including rapid packet inter-arrival times (IATs), uniform packet lengths, and abnormal TCP flag combinations that clash sharply with the learned manifold of legitimate communication. Similarly, all 8 test flows of FTP-BruteForce are detected (100.00% recall), confirming that extreme class rarity in training data does not preclude reliable isolation when non-linear autoencoder gating is employed. Concurrently, 77,877 legitimate benign flows are cleared at Stage-1, yielding an exceptional Benign class precision of 99.95%.",
+                       "Page":  28
+                   },
+                   {
+                       "Number":  "Table 6.3",
+                       "Title":  "Multi-Class Attack Detection Breakdown on NSL-KDD (N = 22,169)",
+                       "Page":  28
+                   },
+                   {
+                       "Number":  "Table 6.3",
+                       "Title":  "details the multi-class performance on the NSL-KDD corpus across five functional threat families. Volumetric Denial of Service (DoS) flows achieve 96.48% recall (7,668 / 7,948 detected) and 96.12% precision, as high-rate flood dynamics generate profound reconstruction residuals across forward packet counts and byte-rate metrics. Network reconnaissance (Probe) attacks attain 87.22% recall, driven by anomalies in port scan headers and ICMP error indicators. Conversely, subtle application-layer vectors such as Remote to Local (R2L, 72.73% recall) and User to Root (U2R, 50.55% recall) exhibit lower sensitivity. Because U2R attacks comprise only 182 test flows and operate within single interactive shell sessions, their transport-layer flow summaries closely resemble legitimate administrative activity. This empirical finding highlights an important operational boundary: while transport-level flow analysis excels at intercepting volumetric, scanning, and credential-stuffing exploits, defending against stealthy low-footprint privilege escalations benefits from complementary host-based log auditing.",
+                       "Page":  29
+                   },
+                   {
+                       "Number":  "Table 6.4",
+                       "Title":  "Reconstruction Threshold Strategy Comparison on CICIDS2018",
+                       "Page":  30
+                   },
+                   {
+                       "Number":  "Table 6.4",
+                       "Title":  "further reveals that static high-percentile cutoffs are equally problematic: a fixed 99th percentile cutoff (τ = 2.1162) yields 0.00% recall, while a 95th percentile cutoff (τ = 0.3632) captures a negligible 0.02% of attacks. The proposed framework resolves this dilemma by optimizing Youden\u0027s J-statistic on an independent validation set. By maximizing J(τ) = TPR(τ) - FPR(τ), the optimization algorithm locates the true Pareto knee at τ* = 0.1973, restoring attack recall to 99.70% with a manageable FPR of 10.03% and a Macro-F1 score of 0.7634.",
+                       "Page":  31
+                   },
+                   {
+                       "Number":  "Table 6.5",
+                       "Title":  "Leave-One-Attack-Out (LOAO) Unseen Attack Detection Performance",
+                       "Page":  32
+                   },
+                   {
+                       "Number":  "Table 6.6",
+                       "Title":  "Statistical Concept Drift Tracking Across Sequential Windows in CICIDS2018",
+                       "Page":  33
+                   },
+                   {
+                       "Number":  "Table 6.7",
+                       "Title":  "Computational Benchmark: Execution Latency, Throughput, and Peak Memory (RSS)",
+                       "Page":  35
+                   },
+                   {
+                       "Number":  "Table 6.8",
+                       "Title":  "Benchmark Comparison Against Baseline Supervised Classifiers",
+                       "Page":  36
+                   }
+               ]
+}

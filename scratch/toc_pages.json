@@ -1,0 +1,902 @@
+﻿[
+    {
+        "Type":  "BACKMATTER",
+        "Text":  "RESEARCH PAPER / PATENT PUBLISHED (if any)",
+        "Page":  6,
+        "AdjPage":  6
+    },
+    {
+        "Type":  "BACKMATTER",
+        "Text":  "REFERENCES",
+        "Page":  6,
+        "AdjPage":  6
+    },
+    {
+        "Type":  "BACKMATTER",
+        "Text":  "APPENDICES",
+        "Page":  6,
+        "AdjPage":  6
+    },
+    {
+        "Type":  "CHAPTER",
+        "Text":  "CHAPTER 1\u000bINTRODUCTION",
+        "Page":  10,
+        "AdjPage":  1
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "1.1 Background",
+        "Page":  10,
+        "AdjPage":  1
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "1.2 Problem Statement",
+        "Page":  10,
+        "AdjPage":  1
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "1.3 Motivation / Need for the Project",
+        "Page":  11,
+        "AdjPage":  2
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "1.4 Objectives",
+        "Page":  12,
+        "AdjPage":  3
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "1.5 Scope of the Project",
+        "Page":  12,
+        "AdjPage":  3
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "1.6 Significance / Expected Contribution",
+        "Page":  12,
+        "AdjPage":  3
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "1.7 Organization of the Report",
+        "Page":  13,
+        "AdjPage":  4
+    },
+    {
+        "Type":  "CHAPTER",
+        "Text":  "CHAPTER 2\u000bLITERATURE SURVEY",
+        "Page":  14,
+        "AdjPage":  5
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "2.1 Introduction",
+        "Page":  14,
+        "AdjPage":  5
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "2.2 Review of Existing Work",
+        "Page":  15,
+        "AdjPage":  6
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "2.3 Comparative Analysis",
+        "Page":  16,
+        "AdjPage":  7
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "2.4 Research / Design Gap",
+        "Page":  17,
+        "AdjPage":  8
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "2.5 Summary",
+        "Page":  17,
+        "AdjPage":  8
+    },
+    {
+        "Type":  "CHAPTER",
+        "Text":  "CHAPTER 3\u000bPROPOSED SYSTEM AND SCOPE",
+        "Page":  18,
+        "AdjPage":  9
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "3.1 Problem Formulation",
+        "Page":  18,
+        "AdjPage":  9
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "3.2 Proposed Solution",
+        "Page":  18,
+        "AdjPage":  9
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "3.3 Requirements",
+        "Page":  19,
+        "AdjPage":  10
+    },
+    {
+        "Type":  "SUBSECTION",
+        "Text":  "Functional \u0026 Non-Functional Requirements",
+        "Page":  19,
+        "AdjPage":  10
+    },
+    {
+        "Type":  "SUBSECTION",
+        "Text":  "Hardware \u0026 Software Requirements",
+        "Page":  20,
+        "AdjPage":  11
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "3.4 System Architecture / Block Diagram",
+        "Page":  21,
+        "AdjPage":  12
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "3.5 Functional Components \u0026 Scope Constraints",
+        "Page":  22,
+        "AdjPage":  13
+    },
+    {
+        "Type":  "CHAPTER",
+        "Text":  "CHAPTER 4\u000bMETHODOLOGY",
+        "Page":  23,
+        "AdjPage":  14
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "4.1 Objective and Method / Approach",
+        "Page":  23,
+        "AdjPage":  14
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "4.2 Measurement / Evaluation Parameters",
+        "Page":  23,
+        "AdjPage":  14
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "4.3 Model Architecture and Structural Diagrams",
+        "Page":  24,
+        "AdjPage":  15
+    },
+    {
+        "Type":  "SUBSECTION",
+        "Text":  "Autoencoder Latent Topology \u0026 Manifold Projection",
+        "Page":  24,
+        "AdjPage":  15
+    },
+    {
+        "Type":  "SUBSECTION",
+        "Text":  "Sequence Diagram of Packet Ingestion and Prediction",
+        "Page":  25,
+        "AdjPage":  16
+    },
+    {
+        "Type":  "SUBSECTION",
+        "Text":  "Activity Diagram of Tiered Detection and Alert Routing",
+        "Page":  26,
+        "AdjPage":  17
+    },
+    {
+        "Type":  "SUBSECTION",
+        "Text":  "Data Flow Diagram (DFD Level-1) for Flow Processing",
+        "Page":  27,
+        "AdjPage":  18
+    },
+    {
+        "Type":  "SUBSECTION",
+        "Text":  "Class Diagram and Use Case Diagram",
+        "Page":  28,
+        "AdjPage":  19
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "4.4 Error Sources, Mitigation, and Data Processing",
+        "Page":  29,
+        "AdjPage":  20
+    },
+    {
+        "Type":  "CHAPTER",
+        "Text":  "CHAPTER 5\u000bIMPLEMENTATION \u0026 EXPERIMENTAL WORK",
+        "Page":  30,
+        "AdjPage":  21
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "5.1 Implementation Environment",
+        "Page":  30,
+        "AdjPage":  21
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "5.2 Module-wise Implementation",
+        "Page":  30,
+        "AdjPage":  21
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "5.2.1 Data Preparation \u0026 Cryptographic Hygiene",
+        "Page":  30,
+        "AdjPage":  21
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "5.2.2 Feature Preprocessing \u0026 Locked Scaling",
+        "Page":  31,
+        "AdjPage":  22
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "5.2.3 Autoencoder Model Training \u0026 Manifold Construction",
+        "Page":  31,
+        "AdjPage":  22
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "5.2.4 Validation Youden\u0027s J Threshold Optimization",
+        "Page":  32,
+        "AdjPage":  23
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "5.2.5 XGBoost Multi-Class Classification \u0026 Confidence Gating",
+        "Page":  32,
+        "AdjPage":  23
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "5.2.6 Dynamic Concept Drift Monitoring \u0026 Alert-Gated TreeSHAP",
+        "Page":  33,
+        "AdjPage":  24
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "5.3 Experimental Setup",
+        "Page":  33,
+        "AdjPage":  24
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.001 (Adam)",
+        "Page":  34,
+        "AdjPage":  25
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.001 (Adam)",
+        "Page":  34,
+        "AdjPage":  25
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.50",
+        "Page":  34,
+        "AdjPage":  25
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.50",
+        "Page":  34,
+        "AdjPage":  25
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "5.4 Prototype \u0026 Testing",
+        "Page":  35,
+        "AdjPage":  26
+    },
+    {
+        "Type":  "CHAPTER",
+        "Text":  "CHAPTER 6\u000bRESULTS, ANALYSIS AND DISCUSSION",
+        "Page":  36,
+        "AdjPage":  27
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "6.1 Quantitative Classification Results",
+        "Page":  36,
+        "AdjPage":  27
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.5805",
+        "Page":  36,
+        "AdjPage":  27
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.7670",
+        "Page":  36,
+        "AdjPage":  27
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.1830 ms/flow",
+        "Page":  36,
+        "AdjPage":  27
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.1420 ms/flow",
+        "Page":  36,
+        "AdjPage":  27
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "527.0 MB RSS",
+        "Page":  36,
+        "AdjPage":  27
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "412.0 MB RSS",
+        "Page":  36,
+        "AdjPage":  27
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "6.2 Confusion Matrix \u0026 Threshold Analysis",
+        "Page":  38,
+        "AdjPage":  29
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.0000",
+        "Page":  39,
+        "AdjPage":  30
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.0000",
+        "Page":  39,
+        "AdjPage":  30
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.0000",
+        "Page":  39,
+        "AdjPage":  30
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.0000",
+        "Page":  39,
+        "AdjPage":  30
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.0007",
+        "Page":  40,
+        "AdjPage":  31
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.0002",
+        "Page":  40,
+        "AdjPage":  31
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.0003",
+        "Page":  40,
+        "AdjPage":  31
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.0496",
+        "Page":  40,
+        "AdjPage":  31
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.0000",
+        "Page":  40,
+        "AdjPage":  31
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.0000",
+        "Page":  40,
+        "AdjPage":  31
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.0000",
+        "Page":  40,
+        "AdjPage":  31
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.0100",
+        "Page":  40,
+        "AdjPage":  31
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.6185",
+        "Page":  40,
+        "AdjPage":  31
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.9970",
+        "Page":  40,
+        "AdjPage":  31
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.7634",
+        "Page":  40,
+        "AdjPage":  31
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.1003",
+        "Page":  40,
+        "AdjPage":  31
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.1700",
+        "Page":  40,
+        "AdjPage":  31
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.9899",
+        "Page":  40,
+        "AdjPage":  31
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.2901",
+        "Page":  40,
+        "AdjPage":  31
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.7883",
+        "Page":  40,
+        "AdjPage":  31
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "6.3 Zero-Day Generalization \u0026 Drift Tracking",
+        "Page":  40,
+        "AdjPage":  31
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.1055",
+        "Page":  42,
+        "AdjPage":  33
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.1267",
+        "Page":  42,
+        "AdjPage":  33
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.0273",
+        "Page":  42,
+        "AdjPage":  33
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.1067",
+        "Page":  42,
+        "AdjPage":  33
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.1311",
+        "Page":  42,
+        "AdjPage":  33
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.0268",
+        "Page":  42,
+        "AdjPage":  33
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.1038",
+        "Page":  42,
+        "AdjPage":  33
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.1230",
+        "Page":  42,
+        "AdjPage":  33
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.0204",
+        "Page":  42,
+        "AdjPage":  33
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.1033",
+        "Page":  42,
+        "AdjPage":  33
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.1221",
+        "Page":  42,
+        "AdjPage":  33
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.0263",
+        "Page":  42,
+        "AdjPage":  33
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.1022",
+        "Page":  42,
+        "AdjPage":  33
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.1210",
+        "Page":  42,
+        "AdjPage":  33
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.0265",
+        "Page":  42,
+        "AdjPage":  33
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "6.4 Latency, Memory Footprint \u0026 Baseline Comparisons",
+        "Page":  43,
+        "AdjPage":  34
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "142.6 s",
+        "Page":  44,
+        "AdjPage":  35
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.0820 ms (12,195 f/s)",
+        "Page":  44,
+        "AdjPage":  35
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "384.2 MB RSS",
+        "Page":  44,
+        "AdjPage":  35
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "38.4 s",
+        "Page":  44,
+        "AdjPage":  35
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.0035 ms (285,714 f/s)",
+        "Page":  44,
+        "AdjPage":  35
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "248.5 MB RSS",
+        "Page":  44,
+        "AdjPage":  35
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "181.0 s",
+        "Page":  44,
+        "AdjPage":  35
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.1830 ms (5,464 f/s)",
+        "Page":  44,
+        "AdjPage":  35
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "527.0 MB RSS",
+        "Page":  44,
+        "AdjPage":  35
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "181.0 s",
+        "Page":  44,
+        "AdjPage":  35
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.4995 ms (2,001 f/s)",
+        "Page":  44,
+        "AdjPage":  35
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "527.0 MB RSS",
+        "Page":  44,
+        "AdjPage":  35
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "1.0000",
+        "Page":  45,
+        "AdjPage":  36
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "1.0000",
+        "Page":  45,
+        "AdjPage":  36
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.0000",
+        "Page":  45,
+        "AdjPage":  36
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.9996",
+        "Page":  45,
+        "AdjPage":  36
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.9996",
+        "Page":  45,
+        "AdjPage":  36
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.0004",
+        "Page":  45,
+        "AdjPage":  36
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.9998",
+        "Page":  45,
+        "AdjPage":  36
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.9998",
+        "Page":  45,
+        "AdjPage":  36
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.0001",
+        "Page":  45,
+        "AdjPage":  36
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.9998",
+        "Page":  45,
+        "AdjPage":  36
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.9998",
+        "Page":  45,
+        "AdjPage":  36
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.0001",
+        "Page":  45,
+        "AdjPage":  36
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.9134",
+        "Page":  45,
+        "AdjPage":  36
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.9970",
+        "Page":  45,
+        "AdjPage":  36
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.1003",
+        "Page":  45,
+        "AdjPage":  36
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.9134",
+        "Page":  45,
+        "AdjPage":  36
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.9970",
+        "Page":  45,
+        "AdjPage":  36
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.1003",
+        "Page":  45,
+        "AdjPage":  36
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.9998",
+        "Page":  45,
+        "AdjPage":  36
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.9998",
+        "Page":  45,
+        "AdjPage":  36
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.0000",
+        "Page":  45,
+        "AdjPage":  36
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.9912",
+        "Page":  45,
+        "AdjPage":  36
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.9912",
+        "Page":  45,
+        "AdjPage":  36
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.0088",
+        "Page":  45,
+        "AdjPage":  36
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.9702",
+        "Page":  45,
+        "AdjPage":  36
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.9702",
+        "Page":  45,
+        "AdjPage":  36
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.0298",
+        "Page":  45,
+        "AdjPage":  36
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.9277",
+        "Page":  45,
+        "AdjPage":  36
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.9313",
+        "Page":  45,
+        "AdjPage":  36
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.0753",
+        "Page":  45,
+        "AdjPage":  36
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.9277",
+        "Page":  45,
+        "AdjPage":  36
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.9313",
+        "Page":  45,
+        "AdjPage":  36
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "0.0753",
+        "Page":  45,
+        "AdjPage":  36
+    },
+    {
+        "Type":  "CHAPTER",
+        "Text":  "CHAPTER 7\u000bCONCLUSION AND FUTURE SCOPE",
+        "Page":  47,
+        "AdjPage":  38
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "7.1 Summary of Work",
+        "Page":  47,
+        "AdjPage":  38
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "7.2 Conclusions",
+        "Page":  47,
+        "AdjPage":  38
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "7.3 Contributions \u0026 Utility",
+        "Page":  47,
+        "AdjPage":  38
+    },
+    {
+        "Type":  "SECTION",
+        "Text":  "7.4 Limitations \u0026 Scope for Future Work",
+        "Page":  48,
+        "AdjPage":  39
+    },
+    {
+        "Type":  "BACKMATTER",
+        "Text":  "REFERENCES",
+        "Page":  49,
+        "AdjPage":  40
+    },
+    {
+        "Type":  "BACKMATTER",
+        "Text":  "APPENDICES",
+        "Page":  51,
+        "AdjPage":  42
+    },
+    {
+        "Type":  "BACKMATTER",
+        "Text":  "Appendix A: Mathematical Derivations and Objective Functions",
+        "Page":  51,
+        "AdjPage":  42
+    },
+    {
+        "Type":  "BACKMATTER",
+        "Text":  "Appendix B: Scapy Live Packet Sniffing \u0026 Flow Extraction Configuration",
+        "Page":  51,
+        "AdjPage":  42
+    }
+]

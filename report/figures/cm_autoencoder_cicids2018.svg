@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 700" width="100%" height="100%" style="background-color: white; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <style>
+    .title { font-size: 22px; font-weight: bold; fill: #111827; text-anchor: middle; }
+    .subtitle { font-size: 14px; fill: #4b5563; text-anchor: middle; }
+    .axis-label { font-size: 16px; font-weight: 600; fill: #1f2937; text-anchor: middle; }
+    .tick-label { font-size: 15px; font-weight: 500; fill: #374151; }
+    .cell-val { font-size: 24px; font-weight: bold; text-anchor: middle; dominant-baseline: central; }
+    .cell-count { font-size: 14px; font-weight: 500; text-anchor: middle; dominant-baseline: central; }
+    .cbar-text { font-size: 12px; fill: #4b5563; }
+  </style>
+
+  <!-- Title -->
+  <text x="360" y="45" class="title">Normalized Confusion Matrix - Standalone Autoencoder</text>
+  <text x="360" y="70" class="subtitle">CSE-CIC-IDS2018 Canonical Test Partition (Threshold τ* = 0.1973)</text>
+
+  <!-- Heatmap Grid -->
+  <!-- Group offset: (180, 120), Grid size: 400x400, Cell size: 200x200 -->
+  <g transform="translate(180, 110)">
+    
+    <!-- Row 0, Col 0: True Benign -> Pred Benign (TN = 77,877 / 86,556 = 89.97%) -->
+    <!-- Colormap Blues: #084594 for 0.90 -->
+    <rect x="0" y="0" width="200" height="200" fill="#1d6996" stroke="#ffffff" stroke-width="2"/>
+    <text x="100" y="90" class="cell-val" fill="#ffffff">0.90</text>
+    <text x="100" y="125" class="cell-count" fill="#e0f2fe">(77,877 / 86,556)</text>
+    <text x="100" y="145" class="cell-count" fill="#bae6fd">TN Rate: 89.97%</text>
+
+    <!-- Row 0, Col 1: True Benign -> Pred Attack (FP = 8,679 / 86,556 = 10.03%) -->
+    <!-- Colormap Blues: #deebf7 for 0.10 -->
+    <rect x="200" y="0" width="200" height="200" fill="#deebf7" stroke="#ffffff" stroke-width="2"/>
+    <text x="300" y="90" class="cell-val" fill="#08306b">0.10</text>
+    <text x="300" y="125" class="cell-count" fill="#1e3a8a">(8,679 / 86,556)</text>
+    <text x="300" y="145" class="cell-count" fill="#1d4ed8">FPR: 10.03%</text>
+
+    <!-- Row 1, Col 0: True Attack -> Pred Benign (FN = 42 / 14,114 = 0.30%) -->
+    <!-- Colormap Blues: #f7fbff for 0.003 -->
+    <rect x="0" y="200" width="200" height="200" fill="#f7fbff" stroke="#ffffff" stroke-width="2"/>
+    <text x="100" y="290" class="cell-val" fill="#08306b">0.00</text>
+    <text x="100" y="325" class="cell-count" fill="#1e3a8a">(42 / 14,114)</text>
+    <text x="100" y="345" class="cell-count" fill="#1d4ed8">FNR: 0.30%</text>
+
+    <!-- Row 1, Col 1: True Attack -> Pred Attack (TP = 14,072 / 14,114 = 99.70%) -->
+    <!-- Colormap Blues: #08306b for 0.997 -->
+    <rect x="200" y="200" width="200" height="200" fill="#08306b" stroke="#ffffff" stroke-width="2"/>
+    <text x="300" y="290" class="cell-val" fill="#ffffff">1.00</text>
+    <text x="300" y="325" class="cell-count" fill="#e0f2fe">(14,072 / 14,114)</text>
+    <text x="300" y="345" class="cell-count" fill="#bae6fd">Recall: 99.70%</text>
+
+    <!-- Y-Axis Ticks & Labels -->
+    <text x="-15" y="105" class="tick-label" text-anchor="end">Benign</text>
+    <text x="-15" y="305" class="tick-label" text-anchor="end">Attack</text>
+
+    <!-- X-Axis Ticks & Labels -->
+    <text x="100" y="430" class="tick-label" text-anchor="middle">Benign (RE ≤ τ*)</text>
+    <text x="300" y="430" class="tick-label" text-anchor="middle">Attack (RE &gt; τ*)</text>
+
+    <!-- Axis Titles -->
+    <text x="-80" y="200" class="axis-label" transform="rotate(-90, -80, 200)">True Class</text>
+    <text x="200" y="465" class="axis-label">Predicted Class</text>
+
+    <!-- Colorbar -->
+    <defs>
+      <linearGradient id="bluesGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+        <stop offset="0%" stop-color="#f7fbff"/>
+        <stop offset="20%" stop-color="#deebf7"/>
+        <stop offset="40%" stop-color="#9ecae1"/>
+        <stop offset="60%" stop-color="#4292c6"/>
+        <stop offset="80%" stop-color="#1d6996"/>
+        <stop offset="100%" stop-color="#08306b"/>
+      </linearGradient>
+    </defs>
+    <rect x="440" y="0" width="25" height="400" fill="url(#bluesGradient)" stroke="#d1d5db" stroke-width="1"/>
+    
+    <!-- Colorbar Ticks -->
+    <text x="475" y="10" class="cbar-text">1.0 (100%)</text>
+    <text x="475" y="90" class="cbar-text">0.8</text>
+    <text x="475" y="170" class="cbar-text">0.6</text>
+    <text x="475" y="250" class="cbar-text">0.4</text>
+    <text x="475" y="330" class="cbar-text">0.2</text>
+    <text x="475" y="400" class="cbar-text">0.0 (0%)</text>
+  </g>
+
+  <!-- Summary Footer -->
+  <g transform="translate(180, 615)">
+    <rect x="0" y="0" width="465" height="55" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="232" y="22" font-size="12" font-weight="600" fill="#334155" text-anchor="middle">
+      Overall Accuracy: 91.34% | Attack Recall: 99.70% | FPR: 10.03% | AUROC: 0.9127
+    </text>
+    <text x="232" y="40" font-size="11" fill="#64748b" text-anchor="middle">
+      Total Evaluation Flows: 100,670 (Benign: 86,556, SSH-Bruteforce: 14,106, FTP-BruteForce: 8)
+    </text>
+  </g>
+</svg>

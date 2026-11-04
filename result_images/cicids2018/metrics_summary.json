@@ -1,43 +1,43 @@
 {
   "dataset": "cicids2018",
   "Autoencoder": {
-    "validation_accuracy": 0.8426442833018775,
-    "validation_precision": 0.6123370401301041,
-    "validation_recall": 0.9870539889471447,
-    "validation_f1": 0.0006308750236578134,
-    "test_accuracy": 0.913370418198073,
-    "test_precision": 0.618522262757681,
-    "test_recall": 0.9970242312597422,
-    "test_f1": 0.7634341516343415
+    "validation_accuracy": 0.9399197519309183,
+    "validation_precision": 0.8120813165537271,
+    "validation_recall": 0.8923875579762564,
+    "validation_f1": 0.8503426184973443,
+    "test_accuracy": 0.9402615794057085,
+    "test_precision": 0.8127903375658099,
+    "test_recall": 0.8934468085106383,
+    "test_f1": 0.8512121949241872
   },
   "XGBoost": {
-    "validation_accuracy": 0.999,
-    "validation_precision": 0.999,
-    "validation_recall": 0.999,
-    "validation_f1": 0.999,
-    "test_accuracy": 0.9999900665540876,
-    "test_precision": 0.999929153382926,
+    "validation_accuracy": 0.9999837225012005,
+    "validation_precision": 0.9999837238799485,
+    "validation_recall": 0.9999837225012005,
+    "validation_f1": 0.9999837228254402,
+    "test_accuracy": 1.0,
+    "test_precision": 1.0,
     "test_recall": 1.0,
-    "test_f1": 0.9999900667014404
+    "test_f1": 1.0
   },
   "Hybrid": {
-    "validation_accuracy": 0.8426442833018775,
-    "validation_precision": 0.618522262757681,
-    "validation_recall": 0.9970242312597422,
-    "validation_f1": 0.7634341516343415,
-    "test_accuracy": 0.913370418198073,
-    "test_precision": 0.618522262757681,
-    "test_recall": 0.9970242312597422,
-    "test_f1": 0.9224952262041445
+    "validation_accuracy": 0.9999612778315585,
+    "validation_precision": 0.9999612893081942,
+    "validation_recall": 0.9999612778315585,
+    "validation_f1": 0.9999612801510651,
+    "test_accuracy": 1.0,
+    "test_precision": 1.0,
+    "test_recall": 1.0,
+    "test_f1": 1.0
   },
   "Overall": {
-    "validation_accuracy": 0.8426442833018775,
-    "validation_precision": 0.618522262757681,
-    "validation_recall": 0.9970242312597422,
-    "validation_f1": 0.9224952262041445,
-    "test_accuracy": 0.913370418198073,
-    "test_precision": 0.618522262757681,
-    "test_recall": 0.9970242312597422,
-    "test_f1": 0.9224952262041445
+    "validation_accuracy": 0.9794089640185889,
+    "validation_precision": 0.979913716621491,
+    "validation_recall": 0.9794089640185889,
+    "validation_f1": 0.9767324308118019,
+    "test_accuracy": 0.9796205715029829,
+    "test_precision": 0.9801214901856223,
+    "test_recall": 0.9796205715029829,
+    "test_f1": 0.9770112578464731
   }
 }

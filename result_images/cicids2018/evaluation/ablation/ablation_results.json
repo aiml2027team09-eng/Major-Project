@@ -15,7 +15,7 @@
         "fp": 0.0,
         "tn": 99369.0,
         "fn": 0.0,
-        "latency_ms_per_sample": 0.0022184177185087576
+        "latency_ms_per_sample": 0.004331637489286589
     },
     "B_AE_Only": {
         "accuracy": 0.8146481211697011,
@@ -29,7 +29,7 @@
         "fp": 995.0,
         "tn": 98374.0,
         "fn": 21779.0,
-        "latency_ms_per_sample": 0.003768328328260841
+        "latency_ms_per_sample": 0.007452071176090101
     },
     "C_AE_XGB_Untuned": {
         "accuracy": 0.9100912353807714,
@@ -46,9 +46,9 @@
         "fp": 4898.0,
         "tn": 94471.0,
         "fn": 6149.0,
-        "latency_ms_per_sample": 0.004273199911215495,
-        "ae_latency_ms": 446.6057999525219,
-        "xgb_latency_ms": 78.43799993861467,
+        "latency_ms_per_sample": 0.009141545060264883,
+        "ae_latency_ms": 932.1121000102721,
+        "xgb_latency_ms": 191.10039999941364,
         "anomalies_flagged": 22249.0,
         "threshold": 0.17102006077766418
     },
@@ -67,9 +67,9 @@
         "fp": 995.0,
         "tn": 98374.0,
         "fn": 21779.0,
-        "latency_ms_per_sample": 0.003704943476580941,
-        "ae_latency_ms": 443.8084000721574,
-        "xgb_latency_ms": 11.414299951866269,
+        "latency_ms_per_sample": 0.0080603708012818,
+        "ae_latency_ms": 956.771499972092,
+        "xgb_latency_ms": 33.59820001060143,
         "anomalies_flagged": 2716.0,
         "threshold": 0.5609651803970337
     },
@@ -88,9 +88,9 @@
         "fp": 19.0,
         "tn": 99350.0,
         "fn": 23500.0,
-        "latency_ms_per_sample": 0.0037579706845711014,
-        "ae_latency_ms": 460.14770003966987,
-        "xgb_latency_ms": 1.5904000028967857,
+        "latency_ms_per_sample": 0.007371952241862139,
+        "ae_latency_ms": 902.9531000123825,
+        "xgb_latency_ms": 2.83129999297671,
         "anomalies_flagged": 19.0,
         "threshold": 27.158181756734848
     },
@@ -109,12 +109,12 @@
         "fp": 19.0,
         "tn": 99350.0,
         "fn": 23500.0,
-        "latency_ms_per_sample": 0.0036248020250538066,
-        "ae_latency_ms": 443.78400000277907,
-        "xgb_latency_ms": 1.5918000135570765,
+        "latency_ms_per_sample": 0.00798525421376,
+        "ae_latency_ms": 978.3766999898944,
+        "xgb_latency_ms": 2.763500000583008,
         "anomalies_flagged": 19.0,
         "threshold": 27.158181756734848,
-        "shap_latency_ms_per_sample": 21.241343000438064
+        "shap_latency_ms_per_sample": 41.625202000141144
     },
     "G_Full_System": {
         "accuracy": 0.8085847528668745,
@@ -131,9 +131,9 @@
         "fp": 19.0,
         "tn": 99350.0,
         "fn": 23500.0,
-        "latency_ms_per_sample": 0.00360051762349155,
-        "ae_latency_ms": 440.5604999046773,
-        "xgb_latency_ms": 1.831499976105988,
+        "latency_ms_per_sample": 0.007698465845605822,
+        "ae_latency_ms": 942.5534999754746,
+        "xgb_latency_ms": 3.3493000082671642,
         "anomalies_flagged": 19.0,
         "threshold": 27.158181756734848
     }

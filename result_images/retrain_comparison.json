@@ -1,52 +1,22 @@
 {
-  "nsl_kdd": {
-    "before": {
-      "autoencoder_test_accuracy": 0.8624,
-      "autoencoder_test_f1": 0.877,
-      "hybrid_test_accuracy": 0.6984,
-      "overall_test_accuracy": 0.7556
-    },
-    "after": {
-      "autoencoder_test_accuracy": 0.9279,
-      "autoencoder_test_f1": 0.9253,
-      "hybrid_test_accuracy": 0.9277,
-      "overall_test_accuracy": 0.9277
-    },
-    "delta": {
-      "autoencoder_test_accuracy": 0.0655,
-      "autoencoder_test_f1": 0.0483,
-      "hybrid_test_accuracy": 0.2293,
-      "overall_test_accuracy": 0.1721
-    },
-    "retrain_settings": {
-      "live_oversample": 1.0,
-      "threshold_metric": "Validation_F1_Optimized",
-      "live_flows_captured": 795
-    }
-  },
   "cicids2018": {
-    "before": {
-      "autoencoder_test_accuracy": 0.8146,
-      "autoencoder_test_f1": 0.0006,
-      "hybrid_test_accuracy": 0.8426,
-      "overall_test_accuracy": 0.8426
+    "dataset": "cicids2018",
+    "retrained_on_live": true,
+    "normal_samples": 464821,
+    "live_oversample": 5,
+    "threshold_metric": "accuracy",
+    "threshold": 0.16456826444131786,
+    "validation": {
+      "accuracy": 0.9399197519309183,
+      "precision": 0.8120813165537271,
+      "recall": 0.8923875579762564,
+      "f1": 0.8503426184973442
     },
-    "after": {
-      "autoencoder_test_accuracy": 0.9134,
-      "autoencoder_test_f1": 0.7634,
-      "hybrid_test_accuracy": 0.9134,
-      "overall_test_accuracy": 0.9134
-    },
-    "delta": {
-      "autoencoder_test_accuracy": 0.0988,
-      "autoencoder_test_f1": 0.7628,
-      "hybrid_test_accuracy": 0.0708,
-      "overall_test_accuracy": 0.0708
-    },
-    "retrain_settings": {
-      "live_oversample": 1.0,
-      "threshold_metric": "Youden_J_Optimized",
-      "live_flows_captured": 1234
+    "test": {
+      "accuracy": 0.9402615794057085,
+      "precision": 0.8127903375658099,
+      "recall": 0.8934468085106383,
+      "f1": 0.8512121949241871
     }
   }
 }

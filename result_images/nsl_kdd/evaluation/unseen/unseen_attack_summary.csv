@@ -1,5 +1,5 @@
-held_out_class,n_held_out_samples,threshold,detection_rate,false_negative_rate,mean_re_held_out,mean_re_benign,decision
-dos,7948,0.1176,0.9310518369401108,0.0689481630598892,0.2100440412759781,0.0526,UNKNOWN_ATTACK
-probe,2160,0.1176,0.8222222222222222,0.1777777777777778,0.2834039330482483,0.0526,UNKNOWN_ATTACK
-r2l,341,0.1176,0.4428152492668621,0.5571847507331378,1.1701699495315552,0.0526,UNKNOWN_ATTACK
-u2r,182,0.1176,0.5054945054945055,0.4945054945054945,0.9985772371292114,0.0526,UNKNOWN_ATTACK
+held_out_class,n_held_out_samples,n_detected_by_ae,detection_rate,false_negative_rate,mean_re_held_out,mean_re_benign,std_re_held_out,threshold,xgb_on_detected
+dos,7458,0,0.0,1.0,0.15768888592720032,0.022162774577736855,0.09714467823505402,7.715297192335129,{}
+probe,2930,0,0.0,1.0,0.22988362610340118,0.022162774577736855,0.20108672976493835,7.715297192335129,{}
+r2l,1299,7,0.005388760585065435,0.9946112394149346,4.388208866119385,0.022162774577736855,62.45388412475586,7.715297192335129,"{'forced_classifications': {'normal': 4, 'u2r': 3}, 'note': ""These samples were correctly flagged as ANOMALOUS by AE. XGBoost forced them into a known class — real systems should label these as 'Unknown/Unseen Attack' when confidence is low."", 'mean_confidence': 0.6654215455055237}"
+u2r,1146,16,0.013961605584642234,0.9860383944153578,4.295738697052002,0.022162774577736855,60.15375900268555,7.715297192335129,"{'forced_classifications': {'normal': 10, 'u2r': 5, 'r2l': 1}, 'note': ""These samples were correctly flagged as ANOMALOUS by AE. XGBoost forced them into a known class — real systems should label these as 'Unknown/Unseen Attack' when confidence is low."", 'mean_confidence': 0.7695246934890747}"

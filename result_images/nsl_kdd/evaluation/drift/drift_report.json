@@ -1,42 +1,58 @@
 {
-  "reconstruction_error": {
-    "drift_detected": false,
-    "severity": "MARGINAL",
-    "ks_test": {
-      "statistic": 0.10431296553094267,
-      "p_value": 0.0812
+    "reconstruction_error": {
+        "feature": "reconstruction_error",
+        "timestamp": "2026-10-14T10:34:38",
+        "drift_detected": false,
+        "severity": "MINOR",
+        "votes": {
+            "ks": true,
+            "psi": false,
+            "jsd": false
+        },
+        "ks_test": {
+            "method": "ks_test",
+            "statistic": 0.1670771663234235,
+            "p_value": 2.718491870217142e-251,
+            "alpha": 0.05,
+            "drift_detected": true,
+            "severity": "MINOR"
+        },
+        "jsd": {
+            "method": "jsd",
+            "jsd_value": 0.00024603149352710716,
+            "threshold_minor": 0.05,
+            "threshold_major": 0.15,
+            "drift_detected": false,
+            "severity": "NONE"
+        },
+        "recommendation": "No action required. Model is operating in distribution."
     },
-    "psi": {
-      "psi_value": 0.12477495959660496
-    },
-    "jsd": {
-      "jsd_value": 0.025470379518224985
-    },
-    "votes": {
-      "ks": false,
-      "psi": false,
-      "jsd": false
-    },
-    "recommendation": "Network distributions remain stationary across operational time windows."
-  },
-  "prediction_distribution": {
-    "drift_detected": false,
-    "severity": "MARGINAL",
-    "ks_test": {
-      "statistic": 0.042,
-      "p_value": 0.154
-    },
-    "psi": {
-      "psi_value": 0.085
-    },
-    "jsd": {
-      "jsd_value": 0.019
-    },
-    "votes": {
-      "ks": false,
-      "psi": false,
-      "jsd": false
-    },
-    "recommendation": "Classifier output probabilities remain calibrated."
-  }
+    "prediction_distribution": {
+        "feature": "prediction_distribution",
+        "timestamp": "2026-10-14T10:34:39",
+        "drift_detected": false,
+        "severity": "MARGINAL",
+        "votes": {
+            "ks": true,
+            "psi": false,
+            "jsd": false
+        },
+        "ks_test": {
+            "method": "ks_test",
+            "statistic": 0.07727825055933518,
+            "p_value": 7.671278392103802e-54,
+            "alpha": 0.05,
+            "drift_detected": true,
+            "severity": "MARGINAL"
+        },
+        "jsd": {
+            "method": "jsd",
+            "jsd_value": 0.003855603018454044,
+            "threshold_minor": 0.05,
+            "threshold_major": 0.15,
+            "drift_detected": false,
+            "severity": "NONE"
+        },
+        "recommendation": "No action required. Model is operating in distribution."
+    }
 }

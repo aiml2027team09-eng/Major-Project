@@ -6,8 +6,8 @@
         "recall_weighted": 0.9993244837998193,
         "f1_weighted": 0.9993257104677828,
         "f1_macro": 0.997920281668725,
-        "train_time_s": 2.766869799932465,
-        "latency_ms_per_sample": 0.00046837119219556966
+        "train_time_s": 5.253058999980567,
+        "latency_ms_per_sample": 0.0007217027891947647
     },
     {
         "model": "Random Forest",
@@ -16,8 +16,8 @@
         "recall_weighted": 0.9999430287542016,
         "f1_weighted": 0.9999430254235583,
         "f1_macro": 0.9999219547128432,
-        "train_time_s": 1.2883440000005066,
-        "latency_ms_per_sample": 0.0018087491558147041
+        "train_time_s": 2.0462506000185385,
+        "latency_ms_per_sample": 0.002473993439963478
     },
     {
         "model": "LinearSVM",
@@ -26,8 +26,8 @@
         "recall_weighted": 0.999755837518007,
         "f1_weighted": 0.9997559079841919,
         "f1_macro": 0.9994220375129347,
-        "train_time_s": 4.761748599936254,
-        "latency_ms_per_sample": 0.0007267716020709033
+        "train_time_s": 260.24425459999475,
+        "latency_ms_per_sample": 0.001214272924722576
     },
     {
         "model": "XGBoost (standalone)",
@@ -36,8 +36,8 @@
         "recall_weighted": 0.999967445002401,
         "f1_weighted": 0.9999674462173387,
         "f1_macro": 0.999917880923272,
-        "train_time_s": 2.4102728000143543,
-        "latency_ms_per_sample": 0.0012904499913126376
+        "train_time_s": 5.725507299997844,
+        "latency_ms_per_sample": 0.002413797621870223
     },
     {
         "model": "MLP",
@@ -46,15 +46,15 @@
         "recall_weighted": 0.9990314888214277,
         "f1_weighted": 0.9990330089958344,
         "f1_macro": 0.9974456530104501,
-        "train_time_s": 3.3521194000495598,
-        "latency_ms_per_sample": 0.0009103500477380302
+        "train_time_s": 9.107164900022326,
+        "latency_ms_per_sample": 0.001326667426203756
     },
     {
         "model": "Autoencoder Only",
         "accuracy": 0.8083487291342812,
         "f1_weighted": 0.7230280828601142,
         "f1_macro": 0.4470093163508709,
-        "latency_ms_per_sample": 0.003921025644986821
+        "latency_ms_per_sample": 0.008249484410163661
     },
     {
         "model": "Hybrid AE+XGBoost (Proposed)",
